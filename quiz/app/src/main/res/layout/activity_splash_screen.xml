@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/btn_radient"
+            android:background="@drawable/go_gra_btn"
             android:fontFamily="@font/righteous"
             android:text="@string/start"
             android:textColor="@color/white"
