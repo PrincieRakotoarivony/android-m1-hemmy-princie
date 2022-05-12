@@ -25,12 +25,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-        <ProgressBar
+        <!--<ProgressBar
             android:id="@+id/determinateBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:theme="@style/AppTheme.SplashLoadingTheme"
+            />-->
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/go_gra_btn"
+            android:fontFamily="@font/righteous"
+            android:text="@string/start"
+            android:textColor="@color/white"
+            android:paddingHorizontal="25dp"
             />
+
     </RelativeLayout>
 </LinearLayout>
