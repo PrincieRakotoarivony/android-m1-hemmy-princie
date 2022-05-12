@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.quiz.R;
 
 public class HomeFragment extends Fragment {
-    
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
