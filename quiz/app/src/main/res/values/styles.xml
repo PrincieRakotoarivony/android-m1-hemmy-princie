@@ -17,4 +17,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.SplashLoadingTheme" parent="AppTheme">
+        <item name="colorAccent">@color/splash_loading_color</item>
+    </style>
+
 </resources>
