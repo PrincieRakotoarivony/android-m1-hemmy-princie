@@ -9,7 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         android:fadeScrollbars="true"
         android:scrollbarStyle="insideOverlay">
 
@@ -29,7 +28,6 @@
                 android:fontFamily="@font/righteous"
                 android:gravity="center"
                 android:text="@string/categories"
-                android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <LinearLayout

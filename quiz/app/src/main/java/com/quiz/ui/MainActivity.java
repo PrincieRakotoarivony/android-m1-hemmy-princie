@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        toolbar.setNavigationIcon(R.drawable.ic_menu_icon);
+        toolbar.setNavigationIcon(R.drawable.ic_fas_bars);
     }
 
     @Override
