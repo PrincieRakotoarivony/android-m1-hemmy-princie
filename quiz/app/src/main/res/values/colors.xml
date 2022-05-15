@@ -32,4 +32,6 @@
     <color name="light">#F9CEEE</color>
     <color name="black">#000000</color>
     <color name="gray">#3e3c3c</color>
+
+    <color name="gradient2">#9254c8</color>
 </resources>
