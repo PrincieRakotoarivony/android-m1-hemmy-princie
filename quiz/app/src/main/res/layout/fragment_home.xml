@@ -37,7 +37,8 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:background="@drawable/cat_bg"
-                android:padding="10dp">
+                android:padding="10dp"
+                >
 
 
                 <ImageView
