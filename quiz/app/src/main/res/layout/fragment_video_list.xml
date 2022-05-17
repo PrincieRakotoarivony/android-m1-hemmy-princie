@@ -38,6 +38,8 @@
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
                 android:theme="@style/AppTheme.Material"
+                android:clickable="true"
+                android:id="@+id/video_card"
                >
             <LinearLayout
                 android:layout_width="match_parent"

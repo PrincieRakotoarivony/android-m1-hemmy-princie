@@ -27,7 +27,19 @@
         android:id="@+id/nav_courses"
         android:name="com.quiz.ui.fragments.VideoListFragment"
         android:label="Cours"
-        tools:layout="@layout/fragment_video_list" />
+        tools:layout="@layout/fragment_video_list">
+
+        <action
+            android:id="@+id/courses_to_play"
+            app:destination="@id/nav_video_play"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_video_play"
+        android:name="com.quiz.ui.fragments.VideoPlayFragment"
+        android:label="Play"
+        tools:layout="@layout/fragment_video_play" />
 
     <fragment
         android:id="@+id/nav_gallery"
