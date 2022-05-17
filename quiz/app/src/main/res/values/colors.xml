@@ -35,4 +35,6 @@
 
     <color name="gradient2">#9254c8</color>
     <color name="cat_bg">#FFE59D</color>
+
+    <color name="gray_bg">#f4f0ec</color>
 </resources>
