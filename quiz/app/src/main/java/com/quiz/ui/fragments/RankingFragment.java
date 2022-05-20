@@ -30,13 +30,7 @@ public class RankingFragment extends Fragment {
             }
         });
 
-        FloatingActionButton plusBtn = root.findViewById(R.id.plus);
-        plusBtn.setOnClickListener(new FloatingActionButton.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(root).navigate(R.id.theme_list_to_new);
-            }
-        });
+
 
         return root;
     }
