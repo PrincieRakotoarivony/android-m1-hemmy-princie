@@ -13,6 +13,12 @@
             android:id="@+id/nav_courses"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Cours" />
+
+        <item
+            android:id="@+id/nav_ranking"
+            android:icon="@drawable/ic_fas_book"
+            android:title="Thèmes d'étude" />
+
     </group>
 
 
