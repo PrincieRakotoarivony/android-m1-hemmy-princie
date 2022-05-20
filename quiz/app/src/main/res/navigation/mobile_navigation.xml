@@ -6,10 +6,21 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_theme"
+        android:name="com.quiz.ui.fragments.ThemeFragment"
+        android:label="Thème d'étude"
+        tools:layout="@layout/fragment_theme" />
+
+    <fragment
         android:id="@+id/nav_ranking"
         android:name="com.quiz.ui.fragments.RankingFragment"
         android:label="Thèmes d'étude"
-        tools:layout="@layout/fragment_ranking" />
+        tools:layout="@layout/fragment_ranking">
+        <action
+            android:id="@+id/theme_list_to_details"
+            app:destination="@id/nav_theme"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_home"
