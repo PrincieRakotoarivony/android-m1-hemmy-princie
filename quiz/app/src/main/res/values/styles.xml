@@ -42,4 +42,9 @@
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
     </style>
+
+    <style name="NavigationStyle">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/righteous</item>
+    </style>
 </resources>

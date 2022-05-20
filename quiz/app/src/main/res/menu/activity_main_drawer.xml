@@ -7,18 +7,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="Accueil"
+            />
         <item
             android:id="@+id/nav_courses"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Cours" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
     </group>
+
+
+    <item android:title="Utilisateur">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/user_profile"
+                    android:icon="@drawable/ic_person_black_24dp"
+                    android:title="Mon compte" />
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/ic_exit_to_app"
+                    android:title="Se déconnecter" />
+            </group>
+        </menu>
+    </item>
 </menu>

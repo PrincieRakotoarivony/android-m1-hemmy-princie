@@ -13,18 +13,22 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
+        android:layout_marginTop="20dp"
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="20dp"
-        app:srcCompat="@drawable/qb_logo" />
+        app:srcCompat="@drawable/logo2"
+        android:adjustViewBounds="true"/>
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/righteous"
         android:text="@string/nav_header_subtitle" />
 
 </LinearLayout>
