@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.QuestionActivity"></activity>
+        <activity android:name=".ui.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name=".ui.QuestionActivity" />
         <activity
             android:name=".ui.SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -35,4 +35,11 @@
         <item name="colorAccent">@color/splash_loading_color</item>
     </style>
 
+    <style name="Error" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+    </style>
 </resources>
