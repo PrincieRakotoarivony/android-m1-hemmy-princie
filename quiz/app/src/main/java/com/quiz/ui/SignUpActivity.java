@@ -15,19 +15,19 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.quiz.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     Animation animTop, animBottom, animToRight, animToLeft;
     LinearLayout headerLayout;
-    Button loginBtn;
-    TextInputLayout layoutEmail, layoutPassword;
-    TextView signUpText;
+    Button signUpBtn;
+    TextInputLayout layoutLastName, layoutFirstName, layoutEmail, layoutPassword, layoutConfirmPassword;
+    TextView loginText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); ///Enter into fullscreen mode
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
 
         animTop = AnimationUtils.loadAnimation(this, R.anim.anim_top);
         animBottom = AnimationUtils.loadAnimation(this, R.anim.anim_bottom);
@@ -35,21 +35,27 @@ public class LoginActivity extends AppCompatActivity {
         animToLeft = AnimationUtils.loadAnimation(this, R.anim.anim_slide_in_left);
 
         headerLayout = findViewById(R.id.header);
-        loginBtn = findViewById(R.id.login_btn);
+        signUpBtn = findViewById(R.id.sign_up_btn);
+        layoutLastName = findViewById(R.id.lastname);
+        layoutFirstName = findViewById(R.id.firstname);
         layoutEmail = findViewById(R.id.email);
         layoutPassword = findViewById(R.id.password);
-        signUpText = findViewById(R.id.sign_up_text);
+        layoutConfirmPassword = findViewById(R.id.confirmPassword);
+        loginText = findViewById(R.id.login_text);
 
         headerLayout.setAnimation(animTop);
-        loginBtn.setAnimation(animBottom);
+        signUpBtn.setAnimation(animBottom);
+        layoutLastName.setAnimation(animToLeft);
+        layoutFirstName.setAnimation(animToRight);
         layoutEmail.setAnimation(animToLeft);
         layoutPassword.setAnimation(animToRight);
-        signUpText.setAnimation(animBottom);
+        layoutConfirmPassword.setAnimation(animToLeft);
+        loginText.setAnimation(animBottom);
 
-        signUpText.setOnClickListener(new TextView.OnClickListener() {
+        loginText.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             }
         });
     }

@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity"
+    tools:context=".ui.SignUpActivity"
     android:background="@color/colorPrimary">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -38,13 +39,13 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/righteous"
                     android:includeFontPadding="true"
-                    android:text="Connexion"
+                    android:text="Inscription"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
-                     />
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -56,6 +57,54 @@
                 >
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lastname"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nom"
+                    app:hintTextColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+                    app:errorTextAppearance="@style/Error"
+                    app:startIconTint="@color/colorPrimaryDark"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/firstname"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Prénoms"
+                    app:hintTextColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+                    app:errorTextAppearance="@style/Error"
+                    app:startIconTint="@color/colorPrimaryDark"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="20dp"
                     android:id="@+id/email"
                     style="@style/TextInputLayoutStyle"
                     android:layout_width="match_parent"
@@ -108,28 +157,56 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/confirmPassword"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirmer le mot de passe"
+                    app:hintTextColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:errorTextAppearance="@style/Error"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/colorPrimaryDark"
+                    app:startIconDrawable="@drawable/ic_fas_lock"
+                    app:startIconTint="@color/colorPrimaryDark"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <Button
                     android:layout_marginTop="50dp"
-                    android:id="@+id/login_btn"
+                    android:id="@+id/sign_up_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:background="@drawable/btn_radient"
                     android:fontFamily="@font/righteous"
-                    android:text="se connecter"
+                    android:text="s'inscrire"
                     android:textColor="@color/white"
                     android:paddingHorizontal="25dp"
                     />
 
                 <TextView
-                    android:id="@+id/sign_up_text"
+                    android:id="@+id/login_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Nouveau utilisateur? S'inscrire maintenant"
+                    android:text="Vous avez déja un compte? Se connecter"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -142,4 +219,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
