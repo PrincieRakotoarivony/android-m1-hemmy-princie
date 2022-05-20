@@ -8,9 +8,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.quiz.R;
 
 public class RankingFragment extends Fragment {
@@ -27,6 +29,15 @@ public class RankingFragment extends Fragment {
                 Navigation.findNavController(root).navigate(R.id.theme_list_to_details);
             }
         });
+
+        FloatingActionButton plusBtn = root.findViewById(R.id.plus);
+        plusBtn.setOnClickListener(new FloatingActionButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(root).navigate(R.id.theme_list_to_new);
+            }
+        });
+
         return root;
     }
 }
