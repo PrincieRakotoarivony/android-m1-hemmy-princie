@@ -9,7 +9,18 @@
         android:id="@+id/nav_pub_list"
         android:name="com.quiz.ui.fragments.PublicationListFragment"
         android:label="Actualités"
-        tools:layout="@layout/fragment_publication_list" />
+        tools:layout="@layout/fragment_publication_list">
+        <action
+            android:id="@+id/pub_list_to_details"
+            app:destination="@id/nav_pub"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pub"
+        android:name="com.quiz.ui.fragments.PublicationFragment"
+        android:label="Actualité"
+        tools:layout="@layout/fragment_publication" />
 
     <fragment
         android:id="@+id/nav_new_theme"
@@ -21,7 +32,13 @@
         android:id="@+id/nav_theme"
         android:name="com.quiz.ui.fragments.ThemeFragment"
         android:label="Thème d'étude"
-        tools:layout="@layout/fragment_theme" />
+        tools:layout="@layout/fragment_theme"
+        >
+        <action
+            android:id="@+id/theme_to_pub_list"
+            app:destination="@id/nav_pub_list"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_ranking"

@@ -13,19 +13,12 @@ import com.google.android.material.card.MaterialCardView;
 import com.quiz.R;
 
 
-public class PublicationListFragment extends Fragment {
+public class PublicationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_publication_list, container, false);
-        MaterialCardView pubCard = root.findViewById(R.id.pub_card1);
-        pubCard.setOnClickListener(new MaterialCardView.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(root).navigate(R.id.pub_list_to_details);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_publication, container, false);
         return root;
     }
 }
