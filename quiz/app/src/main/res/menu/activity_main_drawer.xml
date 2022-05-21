@@ -6,8 +6,13 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_fas_home"
             android:title="Accueil"
+            />
+        <item
+            android:id="@+id/nav_pub_list"
+            android:icon="@drawable/ic_fas_newspaper"
+            android:title="Actualités"
             />
         <item
             android:id="@+id/nav_courses"
