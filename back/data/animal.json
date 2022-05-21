@@ -1,0 +1,62 @@
+[
+    {
+        "nom": "Chat",
+        "image": "imgs/categories/animal/cat.png"
+    },
+    {
+        "nom": "Chèvre",
+        "image": "imgs/categories/animal/chevre.png"
+    },
+    {
+        "nom": "Eléphant",
+        "image": "imgs/categories/animal/elephant.jpg"
+    },
+    {
+        "nom": "Flamant rose",
+        "image": "imgs/categories/animal/flamingo.png"
+    },
+    {
+        "nom": "Renard",
+        "image": "imgs/categories/animal/fox.jpg"
+    },
+    {
+        "nom": "Giraffe",
+        "image": "imgs/categories/animal/giraffe.jpg"
+    },
+    {
+        "nom": "Méduse",
+        "image": "imgs/categories/animal/jelly-fish.png"
+    },
+    {
+        "nom": "Lion",
+        "image": "imgs/categories/animal/lion.jpg"
+    },
+    {
+        "nom": "Singe",
+        "image": "imgs/categories/animal/monkey.jpg"
+    },
+    {
+        "nom": "Panda",
+        "image": "imgs/categories/animal/panda.jpg"
+    },
+    {
+        "nom": "Cochon",
+        "image": "imgs/categories/animal/pig.png"
+    },
+    {
+        "nom": "Lapin",
+        "image": "imgs/categories/animal/rabbit.png"
+    },
+    {
+        "nom": "Raton laveur",
+        "image": "imgs/categories/animal/raccoon.jpg"
+    },
+    {
+        "nom": "Panda rouge",
+        "image": "imgs/categories/animal/red-panda.jpg"
+    },
+    {
+        "nom": "Zèbre",
+        "image": "imgs/categories/animal/zebra.jpg"
+    }
+]

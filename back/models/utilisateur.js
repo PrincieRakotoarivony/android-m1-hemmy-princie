@@ -3,7 +3,6 @@ const sha1 = require('sha1');
 const moment = require('moment');
 const { constantes } = require("../utils");
 const Token = require("./token");
-const MdpOublie = require("./mdpOublie");
 const { generateRandomCode } = require("../utils/tools");
 const { sendMail } = require("../utils/mail");
 

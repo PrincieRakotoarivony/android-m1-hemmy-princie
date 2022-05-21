@@ -1,10 +1,14 @@
-const Profile = require('./profile');
-const Restaurant = require('./restaurant');
 const Token = require('./token');
 const Utilisateur = require('./utilisateur');
 const Categorie = require('./categorie');
-const Commande = require('./commande');
-const MdpOublie = require('./mdpOublie');
+const Animal = require('./animal');
+const Pays = require('./pays');
 
 
-module.exports = {Profile, Restaurant, Token, Utilisateur, Categorie, Commande, MdpOublie};
+module.exports = {
+    Token, 
+    Utilisateur, 
+    Categorie,
+    Animal,
+    Pays,
+};

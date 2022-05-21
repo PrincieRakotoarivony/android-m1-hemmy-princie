@@ -8,6 +8,12 @@ const CategorieSchema = new mongoose.Schema({
     img: String,
 });
 
+async function get(id){
+    const p = await Categorie.findById(id).exec();
+    if(!p) throw new Error("Categorie invalide");
+    return p;
+}
+
 CategorieSchema.statics.getById = async function(id){
     const p = await Categorie.findById(id).exec();
     if(!p) throw new Error("Categorie invalide");

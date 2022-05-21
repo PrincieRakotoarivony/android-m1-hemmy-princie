@@ -41,5 +41,22 @@ router.get('/:id', async function(req, res){
     }
 });
 
+router.put('/:id', async function(req, res){
+    try{
+        const token = tools.extractToken(req.headers.authorization);
+        const u = await Utilisateur.findUser(token);
+        const categorie = await Categorie.getById(req.params.id);
+        if(!u.profile.equals(constantes.PROFILE_RESTAURANT) || !u.restaurant.equals(categorie.restaurant)) 
+            throw new Error("Pas d'autorisation");
+        ["nom", "description", "cout", "prix", "img", "visible"].forEach(key => {
+            categorie[key] = req.body[key];
+        });
+        await categorie.save();
+        res.json(responseBuilder.success("Plat modifié"));
+    } catch(error){
+        res.json(responseBuilder.error(error));
+    }
+});
+
 
 module.exports = router;

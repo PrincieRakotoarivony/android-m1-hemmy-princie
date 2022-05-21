@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "92f9588c-a7a0-4bb0-90ad-8bcf6f1473a4",
+		"_postman_id": "115f0c88-0694-476a-be2d-7671e24c5349",
 		"name": "kidzy",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19696117"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -117,11 +116,50 @@
 		{
 			"name": "Liste des categories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/categorie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save categorie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nom\": \"Pays\",\r\n    \"description\": \"Liste des pays\",\r\n    \"img\": \"pays.png\"\r\n}",
+					"raw": "{\r\n    \"nom\": \"Test\",\r\n    \"description\": \"A propos des Test\",\r\n    \"img\": \"Test.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -129,7 +167,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/categorie/",
+					"raw": "http://localhost:3000/categorie/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -137,7 +175,95 @@
 					"port": "3000",
 					"path": [
 						"categorie",
-						""
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create quiz",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/categorie/6288ed9a500c7da9eb7e6654",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorie",
+						"6288ed9a500c7da9eb7e6654"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des animaux",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/animal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"animal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des pays",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pays",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pays"
 					]
 				}
 			},

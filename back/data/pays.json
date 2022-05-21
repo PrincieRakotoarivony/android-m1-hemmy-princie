@@ -1,0 +1,50 @@
+[
+    {
+        "nom": "Afghanistan",
+        "image": "imgs/categories/pays/Afghanistan.png"
+    },
+    {
+        "nom": "Albanie",
+        "image": "imgs/categories/pays/Albanien.png"
+    },
+    {
+        "nom": "Algerie",
+        "image": "imgs/categories/pays/Algerie.png"
+    },
+    {
+        "nom": "Andorra",
+        "image": "imgs/categories/pays/Andorra.png"
+    },
+    {
+        "nom": "Angola",
+        "image": "imgs/categories/pays/Angola.png"
+    },
+    {
+        "nom": "Antigua et Barbuda",
+        "image": "imgs/categories/pays/Antigua et Barbuda.png"
+    },
+    {
+        "nom": "Argentine",
+        "image": "imgs/categories/pays/Argentine.png"
+    },
+    {
+        "nom": "Autriche",
+        "image": "imgs/categories/pays/Autriche.png"
+    },
+    {
+        "nom": "Azerbaidjan",
+        "image": "imgs/categories/pays/Azerbaidjan.png"
+    },
+    {
+        "nom": "Bahamas",
+        "image": "imgs/categories/pays/Bahamas.png"
+    },
+    {
+        "nom": "Bahrein",
+        "image": "imgs/categories/pays/Bahrein.png"
+    },
+    {
+        "nom": "Bangladesh",
+        "image": "imgs/categories/pays/Bangladesh.png"
+    }
+]
