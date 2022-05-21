@@ -7,6 +7,8 @@ const { constantes } = require('../utils');
 
 router.get('/', async function(req, res){
     try{
+        const token = tools.extractToken(req.headers.authorization);
+        const u = await Utilisateur.findUser(token);
         const result = await Categorie.find();
         res.json(responseBuilder.success(result));
     } catch(error){
@@ -18,11 +20,8 @@ router.post('/save', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        if(!u.profile.equals(constantes.PROFILE_RESTAURANT)) 
-            throw new Error("Pas d'autorisation");
         const categorie = new Categorie(req.body);
         categorie._id = new mongoose.Types.ObjectId();
-        categorie.restaurant = u.restaurant;
         await categorie.save();
         res.json(responseBuilder.success(categorie._id));
     } catch(error){
