@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.PublicationListFragment"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:scrollbarStyle="insideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            >
+            <com.google.android.flexbox.FlexboxLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:alignItems="center"
+                app:justifyContent="space_around"
+                app:flexDirection="row"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="12dp"
+                    android:theme="@style/AppTheme.Material"
+                    android:clickable="true"
+                    android:id="@+id/pub_card1"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pub_img"
+                            android:adjustViewBounds="true"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This is the title"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_user"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="natalie1"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_calendar"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="21/05/2022 10:30"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="12dp"
+                    android:theme="@style/AppTheme.Material"
+                    android:clickable="true"
+                    android:id="@+id/pub_card2"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pub_img"
+                            android:adjustViewBounds="true"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This is the title"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_user"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="natalie1"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_calendar"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="21/05/2022 10:30"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="12dp"
+                    android:theme="@style/AppTheme.Material"
+                    android:clickable="true"
+                    android:id="@+id/pub_card3"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pub_img"
+                            android:adjustViewBounds="true"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This is the title"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_user"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="natalie1"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_calendar"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="21/05/2022 10:30"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="12dp"
+                    android:theme="@style/AppTheme.Material"
+                    android:clickable="true"
+                    android:id="@+id/pub_card4"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pub_img"
+                            android:adjustViewBounds="true"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This is the title"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_user"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="natalie1"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_calendar"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="21/05/2022 10:30"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="12dp"
+                    android:theme="@style/AppTheme.Material"
+                    android:clickable="true"
+                    android:id="@+id/pub_card5"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pub_img"
+                            android:adjustViewBounds="true"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This is the title"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_user"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="natalie1"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_fas_calendar"
+                                    android:tint="@color/my_gray"
+                                    android:adjustViewBounds="true"/>
+                                <TextView
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="21/05/2022 10:30"
+                                    android:fontFamily="@font/roboto"
+                                    android:textSize="12sp"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
