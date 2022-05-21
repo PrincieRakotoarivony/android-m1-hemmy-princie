@@ -18,8 +18,8 @@ app.use(express.static('public'))
     return value;
 }); */
 
-const url = "mongodb+srv://m1p9mean-912:m1p9mean-912@cluster0.lpbgv.mongodb.net/ekaly?retryWrites=true&w=majority";
-//const url = "mongodb://localhost:27017/ekaly"
+const url = "mongodb+srv://hemmy-princie:vBEeB80jsEh2ysAK@cluster0.pirdg.mongodb.net/kidzy?retryWrites=true&w=majority";
+// const url = "mongodb://localhost:27017/kidzy"
 mongoose.connect(url, {useUnifiedTopology: true});
 
 function use_routes(routes){
@@ -31,7 +31,7 @@ function use_routes(routes){
   
 use_routes(routes);
 app.get('/', function (req, res){
-    res.json({message: 'Welcome to Ekaly'});
+    res.json({message: 'Welcome to kidzy'});
 })
 
 const port = process.env.PORT || 3000;

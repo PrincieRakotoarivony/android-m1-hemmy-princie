@@ -2,7 +2,7 @@ const { ObjectId } = require("mongodb");
 const { default: mongoose } = require("mongoose");
 const { ETATS_COMMANDE, PROFILE_LIVREUR } = require("../utils/constantes");
 const { parseMoment } = require("../utils/tools");
-const Produit = require("./produit");
+const Produit = require("./categorie");
 const Utilisateur = require("./utilisateur");
 
 const DetailsCommandeSchema = new mongoose.Schema({

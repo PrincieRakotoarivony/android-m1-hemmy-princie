@@ -18,8 +18,11 @@ router.post('/signUp', async function(req, res){
         const u = new Utilisateur(req.body);
         await u.signUp({confirmMdp: req.body.confirmMdp});
         res.json(responseBuilder.success(u._id));
-    } catch(err){
-        res.json(responseBuilder.error(err));
+    } catch(error){
+        if (error.name === 'MongoServerError' && error.code === 11000) {
+            error = new Error('Email déjà utilisé');
+        } 
+        res.json(responseBuilder.error(error));
     }
 });
 
@@ -39,28 +42,10 @@ router.delete('/logout', async function(req, res){
         await Token.rmvToken(token);
         res.json(responseBuilder.success("Utilisateur déconnecté"));
     } catch(error){
-        res.json(responseBuilder.error(error.message));
+        console.log('error', error)
+        res.json(responseBuilder.error(error));
     }
 });
 
-router.get('/mdpOublie', async function(req, res){
-    try{
-        await Utilisateur.mdpOublie(req.query.mail);
-        res.json(responseBuilder.success("success"));
-    } catch(err){
-        console.log(err);
-        res.json(responseBuilder.error(err));
-    }
-});
-
-router.post('/reinitMdp', async function(req, res){
-    try{
-        await Utilisateur.reinitMdp(req.body);
-        res.json(responseBuilder.success("success"));
-    } catch(err){
-        console.log(err);
-        res.json(responseBuilder.error(err));
-    }
-});
 
 module.exports = router;

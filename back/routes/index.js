@@ -1,5 +1,5 @@
 const auth = require('./auth');
-const produits = require('./produits');
+const categorie = require('./categorie');
 const commandes = require('./commandes');
 const livreurs = require('./livreurs');
-module.exports = {auth, produits, commandes, livreurs}
+module.exports = {auth, categorie, commandes, livreurs}
