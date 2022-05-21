@@ -43,4 +43,6 @@ dependencies {
     def lottieVersion = '3.4.1'
     implementation "com.airbnb.android:lottie:${lottieVersion}"
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.google.code.gson:gson:2.9.0'
 }

@@ -3,7 +3,10 @@ package com.quiz.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -11,11 +14,19 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+import com.quiz.KidzyApplication;
 import com.quiz.R;
+import com.quiz.models.Utilisateur;
+import com.quiz.services.AuthService;
+import com.quiz.util.MyMap;
 
 public class LoginActivity extends AppCompatActivity {
+
+    AuthService authService;
 
     Animation animTop, animBottom, animToRight, animToLeft;
     LinearLayout headerLayout;
@@ -28,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); ///Enter into fullscreen mode
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        authService = AuthService.getInstance();
 
         animTop = AnimationUtils.loadAnimation(this, R.anim.anim_top);
         animBottom = AnimationUtils.loadAnimation(this, R.anim.anim_bottom);
@@ -56,7 +69,38 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                String email = layoutEmail.getEditText().getText().toString();
+                String password = layoutPassword.getEditText().getText().toString();
+                new AsyncTask<Object, Object, Object>() {
+                    @Override
+                    protected void onPostExecute(Object o) {
+                        if(o instanceof Exception){
+                            Exception ex = (Exception)o;
+                            ex.printStackTrace();
+                            Snackbar.make(v, ex.getMessage(), Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(Color.RED)
+                                    .show();
+                        } else {
+                            MyMap result = (MyMap) o;
+                            KidzyApplication.set("token", (String)result.get("token"));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        }
+                    }
+
+                    @Override
+                    protected Object doInBackground(Object... objects) {
+                        try{
+                            Utilisateur utilisateur = new Utilisateur();
+                            utilisateur.setMail((String)objects[0]);
+                            utilisateur.setMdp((String)objects[1]);
+                            return authService.login(utilisateur);
+                        } catch (Exception ex){
+                            return ex;
+                        }
+                    }
+
+
+                }.execute(email, password);
             }
         });
     }
