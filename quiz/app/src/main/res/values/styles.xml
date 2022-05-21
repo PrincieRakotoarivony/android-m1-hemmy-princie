@@ -47,4 +47,14 @@
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">@font/righteous</item>
     </style>
+
+    <!-- Custom Dialog Animation. -->
+    <style name="AnimateDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+    </style>
+
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_top</item>
+        <item name="android:windowExitAnimation">@anim/anim_fadeout</item>
+    </style>
 </resources>
