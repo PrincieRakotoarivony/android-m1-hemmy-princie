@@ -3,6 +3,7 @@ const Utilisateur = require('./utilisateur');
 const Categorie = require('./categorie');
 const Animal = require('./animal');
 const Pays = require('./pays');
+const Partie = require('./partie');
 
 
 module.exports = {
@@ -11,4 +12,5 @@ module.exports = {
     Categorie,
     Animal,
     Pays,
+    Partie,
 };

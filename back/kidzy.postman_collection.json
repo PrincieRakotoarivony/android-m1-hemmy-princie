@@ -194,18 +194,27 @@
 						}
 					]
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_categorie\": \"6288edb7500c7da9eb7e6658\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3000/categorie/6288ed9a500c7da9eb7e6654",
+					"raw": "http://localhost:3000/partie/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"categorie",
-						"6288ed9a500c7da9eb7e6654"
+						"partie",
+						"save"
 					]
 				}
 			},
@@ -266,6 +275,14 @@
 						"pays"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
