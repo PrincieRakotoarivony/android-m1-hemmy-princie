@@ -5,6 +5,7 @@ const Animal = require('./animal');
 const Pays = require('./pays');
 const Partie = require('./partie');
 const Cours = require('./cours');
+const Theme = require('./theme');
 
 
 module.exports = {
@@ -15,4 +16,5 @@ module.exports = {
     Pays,
     Partie,
     Cours,
+    Theme,
 };

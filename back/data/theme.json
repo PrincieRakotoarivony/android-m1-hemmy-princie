@@ -1,0 +1,14 @@
+[
+    {
+        "nom": "Chimie",
+        "image": "imgs/theme/chimie.jpg"
+    },
+    {
+        "nom": "Musique",
+        "image": "imgs/theme/musique.png"
+    },
+    {
+        "nom": "Plante",
+        "image": "imgs/theme/plante.jpg"
+    }
+]

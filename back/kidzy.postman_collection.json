@@ -315,6 +315,113 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Liste des themes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pageNumber\": 2,\r\n    \"nPerPage\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/theme",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"theme"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save theme",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Art plastique\",\r\n    \"description\": \"Art\",\r\n    \"img\": \"visuel-arts-plastiques.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/theme/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"theme",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir un theme",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/theme/628aa7d436460e9ea231a1db",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"theme",
+						"628aa7d436460e9ea231a1db"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -15,7 +15,6 @@ CoursSchema.statics.findAll = async function (params) {
     })
         .skip((params.pageNumber - 1) * params.nPerPage)
         .limit(params.nPerPage);
-    // return await Cours.find({});
 }
 
 
