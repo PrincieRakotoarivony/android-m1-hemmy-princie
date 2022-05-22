@@ -27,5 +27,6 @@ public class BaseFragment extends Fragment {
         loadingLayout.setVisibility(View.GONE);
     }
 
+    public void initData(){}
 
 }

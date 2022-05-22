@@ -12,6 +12,7 @@
         android:fadeScrollbars="true"
         android:scrollbarStyle="insideOverlay">
 
+
         <LinearLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
@@ -19,7 +20,6 @@
             android:orientation="vertical"
             android:paddingHorizontal="20dp"
             >
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -29,113 +29,120 @@
                 android:gravity="center"
                 android:text="@string/categories"
                 android:textSize="25sp" />
-
             <LinearLayout
-                android:id="@+id/cat_animal"
-                android:layout_marginTop="10dp"
+                android:id="@+id/cat_container"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:background="@drawable/cat_bg"
-                android:padding="10dp"
-                android:clickable="true"
-                >
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/cat_animal"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_gravity="center_vertical"
-                    android:text="Animaux"
-                    android:textSize="21sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/cat_animal"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="110dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/cat_bg"-->
+<!--                android:padding="10dp"-->
+<!--                android:clickable="true"-->
+<!--                >-->
 
 
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:gravity="center"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:src="@drawable/cat_animal"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:background="@drawable/cat_bg"
-                android:padding="10dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/cat_maths"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_gravity="center_vertical"
-                    android:text="Maths"
-                    android:textSize="21sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:text="Animaux"-->
+<!--                    android:textSize="21sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="110dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/cat_bg"-->
+<!--                android:padding="10dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:gravity="center"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:src="@drawable/cat_maths"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:text="Maths"-->
+<!--                    android:textSize="21sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
 
 
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:background="@drawable/cat_bg"
-                android:padding="10dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/cat_pays"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_gravity="center_vertical"
-                    android:text="Pays"
-                    android:textSize="21sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    />
+<!--            </LinearLayout>-->
 
 
 
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="110dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/cat_bg"-->
+<!--                android:padding="10dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:gravity="center"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:src="@drawable/cat_pays"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:text="Pays"-->
+<!--                    android:textSize="21sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    />-->
+
+
+
+<!--            </LinearLayout>-->
             </LinearLayout>
 
 
