@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,15 @@ public class QuestionFragment extends BaseFragment {
         choiceContainer = root.findViewById(R.id.choice_container);
         btnNext = root.findViewById(R.id.btn_next);
         btnNext.setVisibility(View.GONE);
+        btnNext.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("idCategorie", idCategorie);
+                Navigation.findNavController(getView()).navigate(R.id.question_to_question, bundle);
+            }
+        });
+
 
         animToRight = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_right);
         animToLeft = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_left);
@@ -167,6 +177,7 @@ public class QuestionFragment extends BaseFragment {
                     MediaPlayer mp = null;
                     if(choice.isCorrect()){
                         mp = MediaPlayer.create(getActivity(), R.raw.ding);
+                        lastP.setNbrSuccess(lastP.getNbrSuccess()+1);
                     } else{
                         mp = MediaPlayer.create(getActivity(), R.raw.wrong_buzzer);
                         choiceBtn.setBackgroundResource(R.drawable.choice_bg_error);
@@ -180,6 +191,8 @@ public class QuestionFragment extends BaseFragment {
                     }
 
                     mp.start();
+                    lastP.setLastIndex(lastP.getLastIndex()+1);
+                    quizService.savePartie(lastP);
                     btnNext.setVisibility(View.VISIBLE);
                 }
             });

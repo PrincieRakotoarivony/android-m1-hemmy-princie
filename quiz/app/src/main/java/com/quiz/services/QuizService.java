@@ -120,4 +120,25 @@ public class QuizService {
         List<Question> result = Util.getGson().fromJson(myResponse.getData(), new TypeToken<List<Question>>(){}.getType());
         return result;
     }
+
+    public void updatePartie(PartieSave p){
+        SQLiteDatabase db = null;
+        try{
+            db = KidzyApplication.getDbHelper().getWritableDatabase();
+            db.beginTransaction();
+            ContentValues values = new ContentValues();
+            values.put("nbrSuccess", p.getNbrSuccess());
+            values.put("lastIndex", p.getLastIndex());
+            int count = db.update("partie", values, " idUser = ? and idCategorie = ? ", new String[]{p.getIdUser(), p.getIdCategorie()});
+            System.out.println("count = "+count);
+            db.setTransactionSuccessful();
+        } finally {
+            if(db != null){
+                if(db.inTransaction())
+                    db.endTransaction();
+                db.close();
+            }
+        }
+    }
+
 }

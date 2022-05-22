@@ -79,7 +79,13 @@
         android:id="@+id/nav_question"
         android:name="com.quiz.ui.fragments.QuestionFragment"
         android:label="Question"
-        tools:layout="@layout/fragment_question" />
+        tools:layout="@layout/fragment_question">
+
+        <action
+            android:id="@+id/question_to_question"
+            app:destination="@id/nav_question"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_courses"
