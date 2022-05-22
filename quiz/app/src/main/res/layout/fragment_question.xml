@@ -23,6 +23,7 @@
                 android:background="@drawable/question_bg"
                 >
                 <TextView
+                    android:id="@+id/step_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1/20"
@@ -33,6 +34,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/question_img"
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,6 +46,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/question_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Don't let the noise of others' opinions drown out your own inner voice."
