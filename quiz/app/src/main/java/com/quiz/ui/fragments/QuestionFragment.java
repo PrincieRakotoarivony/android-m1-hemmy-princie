@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +22,14 @@ import com.quiz.R;
 import com.quiz.models.Categorie;
 import com.quiz.models.PartieSave;
 import com.quiz.models.Question;
+import com.quiz.models.QuestionItem;
 import com.quiz.services.QuizService;
+import com.quiz.ui.slideshow.MyChoiceButton;
 import com.quiz.util.Const;
 import com.quiz.util.DownloadImageFromInternet;
 import com.quiz.util.Util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,6 +40,8 @@ public class QuestionFragment extends BaseFragment {
 
     TextView stepText, questionText;
     ImageView questionImage;
+    LinearLayout choiceContainer;
+    List<MyChoiceButton> choices;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,7 @@ public class QuestionFragment extends BaseFragment {
         stepText = root.findViewById(R.id.step_text);
         questionText = root.findViewById(R.id.question_text);
         questionImage = root.findViewById(R.id.question_img);
+        choiceContainer = root.findViewById(R.id.choice_container);
 
         return root;
     }
@@ -127,6 +135,39 @@ public class QuestionFragment extends BaseFragment {
         } else{
             questionText.setText(q.getTarget().getNom());
             questionText.setVisibility(View.VISIBLE);
+        }
+
+        choiceContainer.removeAllViewsInLayout();
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.topMargin = KidzyApplication.convertDpToPx(20);
+
+        choices = new ArrayList<>();
+        for(QuestionItem choice: q.getSuggestions()){
+            Button choiceBtn = (Button)getLayoutInflater().inflate(R.layout.quiz_choice_btn, null);
+            choiceBtn.setText(choice.getNom());
+
+
+            choiceBtn.setOnClickListener(new Button.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(choice.isCorrect()){
+
+                    } else{
+                        choiceBtn.setBackgroundResource(R.drawable.choice_bg_error);
+                    }
+
+                    for(MyChoiceButton cb: choices){
+                        cb.getBtn().setEnabled(false);
+                        if(cb.isCorrect()){
+                            cb.getBtn().setBackgroundResource(R.drawable.choice_bg_success);
+                        }
+                    }
+                }
+            });
+
+            choiceContainer.addView(choiceBtn, lp);
+            choices.add(new MyChoiceButton(choiceBtn, choice.isCorrect()));
+
         }
     }
 }

@@ -58,6 +58,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/choice_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
@@ -66,57 +67,57 @@
                 android:orientation="vertical">
 
 
-                <Button
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/choice_bg"
-                    android:text="Choice 1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="13sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+<!--                <Button-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/choice_bg"-->
+<!--                    android:text="Choice 1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    />-->
 
-                <Button
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/choice_bg"
-                    android:text="Choice 1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="13sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+<!--                <Button-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/choice_bg"-->
+<!--                    android:text="Choice 1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    />-->
 
-                <Button
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/choice_bg"
-                    android:text="Choice 1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="13sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+<!--                <Button-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/choice_bg"-->
+<!--                    android:text="Choice 1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    />-->
 
-                <Button
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/choice_bg"
-                    android:text="Choice 1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="13sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+<!--                <Button-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/choice_bg"-->
+<!--                    android:text="Choice 1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    />-->
 
             </LinearLayout>
 
