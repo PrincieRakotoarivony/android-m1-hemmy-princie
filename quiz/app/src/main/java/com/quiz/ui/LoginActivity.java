@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,9 +31,10 @@ public class LoginActivity extends AppCompatActivity {
 
     Animation animTop, animBottom, animToRight, animToLeft;
     LinearLayout headerLayout;
-    Button loginBtn;
+    LinearLayout loginBtn;
     TextInputLayout layoutEmail, layoutPassword;
     TextView signUpText;
+    ProgressBar loginProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         layoutEmail = findViewById(R.id.email);
         layoutPassword = findViewById(R.id.password);
         signUpText = findViewById(R.id.sign_up_text);
+        loginProgress = findViewById(R.id.login_progress);
 
         headerLayout.setAnimation(animTop);
         loginBtn.setAnimation(animBottom);
@@ -66,9 +69,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginBtn.setOnClickListener(new Button.OnClickListener() {
+        loginBtn.setOnClickListener(new LinearLayout.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(loginProgress.getVisibility() == View.VISIBLE) return;
                 String email = layoutEmail.getEditText().getText().toString();
                 String password = layoutPassword.getEditText().getText().toString();
                 new AsyncTask<Object, Object, Object>() {
@@ -85,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                             KidzyApplication.set("token", (String)result.get("token"));
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }
+                        loginProgress.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -101,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 }.execute(email, password);
+                loginProgress.setVisibility(View.VISIBLE);
             }
         });
     }

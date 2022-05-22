@@ -57,4 +57,8 @@
         <item name="android:windowEnterAnimation">@anim/anim_top</item>
         <item name="android:windowExitAnimation">@anim/anim_fadeout</item>
     </style>
+
+    <style name="AppTheme.BtnLoadingTheme" parent="AppTheme">
+        <item name="colorAccent">@color/white</item>
+    </style>
 </resources>
