@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             MyMap result = (MyMap) o;
                             KidzyApplication.set("token", (String)result.get("token"));
+                            KidzyApplication.set("idUser", ((Utilisateur)result.get("user")).get_id());
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }
                         loginProgress.setVisibility(View.GONE);

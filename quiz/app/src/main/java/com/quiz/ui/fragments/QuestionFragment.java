@@ -13,16 +13,22 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.quiz.R;
+import com.quiz.models.PartieSave;
+import com.quiz.services.QuizService;
 
 
 public class QuestionFragment extends BaseFragment {
-    int amount;
-
+    String idCategorie;
+    QuizService quizService;
+    int index;
+    boolean withIndex;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            amount = getArguments().getInt("amount");
+            idCategorie = getArguments().getString("idCategorie");
+            withIndex = getArguments().containsKey("index");
+            index = getArguments().getInt("index", 0);
         }
     }
 
@@ -30,12 +36,23 @@ public class QuestionFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_question, container, false);
+        initBase(root, false);
+        quizService = QuizService.getInstance();
         return root;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Toast.makeText(getActivity(), "amount: "+amount, Toast.LENGTH_LONG).show();
+        if(withIndex){
+
+        } else {
+            PartieSave lastP = quizService.getLastPartie(idCategorie);
+            if(lastP == null) {
+
+            } else {
+
+            }
+        }
     }
 }

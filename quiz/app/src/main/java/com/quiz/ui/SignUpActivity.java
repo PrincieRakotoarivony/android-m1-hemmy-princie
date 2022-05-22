@@ -111,8 +111,9 @@ public class SignUpActivity extends AppCompatActivity {
                             }
 
                         }  else {
-                            String token = (String) o;
-                            KidzyApplication.set("token", token);
+                            MyMap result = (MyMap) o;
+                            KidzyApplication.set("token", (String)result.get("token"));
+                            KidzyApplication.set("idUser", ((Utilisateur)result.get("user")).get_id());
                             startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                         }
                         signUpProgress.setVisibility(View.GONE);

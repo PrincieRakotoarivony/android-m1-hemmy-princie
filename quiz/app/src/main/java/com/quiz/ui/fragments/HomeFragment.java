@@ -107,6 +107,16 @@ public class HomeFragment extends BaseFragment {
 
             ImageView catImg = catView.findViewById(R.id.cat_img);
             new DownloadImageFromInternet(catImg).execute(Const.BASE_URL + "/" + cat.getImg());
+
+            catView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("idCategorie", cat.get_id());
+                    Navigation.findNavController(getView()).navigate(R.id.home_to_question, bundle);
+                }
+            });
+
             catContainer.addView(catView, lp);
         }
     }

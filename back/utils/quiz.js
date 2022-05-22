@@ -31,15 +31,19 @@ function quizes(data){
   let quizes = [];
   quizesIndexes.map((quizPart) => {
       let target = JSON.parse(JSON.stringify(data[quizPart.target]));
-      target.isCorrect = true;
+      let suggCorrect = JSON.parse(JSON.stringify(target));
+      delete target.nom;
+      suggCorrect.isCorrect = true;
+      delete suggCorrect.image;
       let suggestions = [];
       quizPart.suggestions.map((sugg) => {
           let d = JSON.parse(JSON.stringify(data[sugg]));
+          delete d.image;
           d.isCorrect = false;
           suggestions.push(d);
       });
-      let postTarget = Math.floor(Math.random() * 4);
-      suggestions.splice(postTarget, 0, target);
+      let posTarget = Math.floor(Math.random() * 4);
+      suggestions.splice(posTarget, 0, suggCorrect);
       quizes.push({target, suggestions});
   });
   return quizes;
@@ -84,13 +88,13 @@ function quizMath() {
           level = 3;
           calcul += nextOperation(level - 1);
       }
-      let quiz = { target: calcul, suggestions: [] };
+      let quiz = { target: {nom: calcul}, suggestions: [] };
       const eval1 = Math.floor(eval(calcul)).toString();
-      quiz.suggestions.push({isCorrect: true, value: eval1});
+      quiz.suggestions.push({isCorrect: true, nom: eval1});
       for (let index1 = 0; index1 < 3; index1++) {
           let suggestion = { isCorrect: false };
           let calcul1 = makeid(level);
-          suggestion.value = calcul1;
+          suggestion.nom = calcul1;
           quiz.suggestions.push({ ...suggestion });
       }
       quizes.push(quiz);

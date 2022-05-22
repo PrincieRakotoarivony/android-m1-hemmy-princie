@@ -3,19 +3,28 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.quiz.util.DbHelper;
+
 public class KidzyApplication extends Application{
 
     static Context context;
+    static DbHelper dbHelper;
+
     public static final String SHARED_PREFS = "kidzy";
 
     public static Context getContext() {
         return context;
     }
 
+    public static DbHelper getDbHelper() {
+        return dbHelper;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        dbHelper = new DbHelper(context);
     }
 
     public static SharedPreferences getSharedPrefs(){

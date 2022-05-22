@@ -26,11 +26,11 @@ router.post('/save', async function (req, res) {
             id_categorie: categorie._id,
             detail: [],
         }
-        const partie = new Partie(data);
-        partie._id = new mongoose.Types.ObjectId();
+        //const partie = new Partie(data);
+        //partie._id = new mongoose.Types.ObjectId();
         const detail = await Partie.createPartie(categorie._id);
-        partie.detail = detail;
-        await partie.save();
+        //partie.detail = detail;
+        //await partie.save();
         res.json(responseBuilder.success(detail));
     } catch (error) {
         res.json(responseBuilder.error(error));

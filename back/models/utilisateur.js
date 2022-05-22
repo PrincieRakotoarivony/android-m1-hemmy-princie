@@ -30,9 +30,12 @@ const UtilisateurSchema = new mongoose.Schema({
 UtilisateurSchema.methods.signUp = async function (params){
     if(!params.confirmMdp || params.confirmMdp != this.mdp)
         throw new Error("Mots de passe non conformes");
+    const mdpNotHashed = this.mdp;    
     this.mdp = sha1(this.mdp);
     this._id = new mongoose.Types.ObjectId();
     await this.save();
+    this.mdp = mdpNotHashed;
+    return await this.login();
 } 
 
 UtilisateurSchema.methods.login = async function (){

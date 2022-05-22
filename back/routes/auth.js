@@ -16,8 +16,8 @@ router.post('/login', async function(req, res){
 router.post('/signUp', async function(req, res){
     try{
         const u = new Utilisateur(req.body);
-        await u.signUp({confirmMdp: req.body.confirmMdp});
-        res.json(responseBuilder.success(u._id));
+        const result = await u.signUp({confirmMdp: req.body.confirmMdp});
+        res.json(responseBuilder.success(result));
     } catch(error){
         if (error.name === 'MongoServerError' && error.code === 11000) {
             error = new Error('Email déjà utilisé');

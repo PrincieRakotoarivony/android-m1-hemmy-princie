@@ -20,17 +20,25 @@ public class BaseFragment extends Fragment {
     }
 
     public void initBase(View root){
-        setLoadingLayout(root.findViewById(R.id.common_loading));
-        SwipeRefreshLayout refresher = root.findViewById(R.id.refresher);
-        refresher.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                initData();
-                refresher.setRefreshing(false);
-            }
-        });
+        initBase(root, true);
+    }
 
-        setRefreshLayout(refresher);
+    public void initBase(View root, boolean refresh){
+        setLoadingLayout(root.findViewById(R.id.common_loading));
+
+        if(refresh) {
+            SwipeRefreshLayout refresher = root.findViewById(R.id.refresher);
+            refresher.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    initData();
+                    refresher.setRefreshing(false);
+                }
+            });
+            setRefreshLayout(refresher);
+        }
+
+
 
     }
 

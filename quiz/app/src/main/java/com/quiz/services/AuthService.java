@@ -40,14 +40,19 @@ public class AuthService {
         return result;
     }
 
-    public String signUp(Utilisateur user) throws Exception{
+    public MyMap signUp(Utilisateur user) throws Exception{
         MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/auth/signUp", Util.POST, user, null);
         if(myResponse.getMeta().getStatus() != 1){
             throw myResponse.getMeta().convertToException();
         }
 
-        String token = myResponse.getData().getAsString();
-        return token;
+        JsonObject data = myResponse.getData().getAsJsonObject();
+        Utilisateur utilisateur = Util.getGson().fromJson(data.get("user"), Utilisateur.class);
+        String token = data.get("token").getAsString();
+        MyMap result = new MyMap()
+                .putData("user", utilisateur)
+                .putData("token", token);
+        return result;
     }
 
     public void logout(String token) throws Exception{
