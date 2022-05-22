@@ -1,5 +1,10 @@
 package com.quiz.models;
 
+import com.google.gson.reflect.TypeToken;
+import com.quiz.util.Util;
+
+import java.util.List;
+
 public class PartieSave {
     int id;
     String idUser;
@@ -9,6 +14,18 @@ public class PartieSave {
     int nbrTotal;
     int lastIndex;
 
+    public PartieSave(){
+
+    }
+
+    public PartieSave(String idUser, String idCategorie, List<Question> questions){
+        this.idUser = idUser;
+        this.idCategorie = idCategorie;
+        this.partieJson = Util.getGson().toJson(questions);
+        this.nbrSuccess = 0;
+        this.nbrTotal = questions.size();
+        this.lastIndex = 0;
+    }
     public int getLastIndex() {
         return lastIndex;
     }
@@ -63,5 +80,13 @@ public class PartieSave {
 
     public void setNbrTotal(int nbrTotal) {
         this.nbrTotal = nbrTotal;
+    }
+
+    public List<Question> getQuestions(){
+        return Util.getGson().fromJson(getPartieJson(), new TypeToken<List<Question>>(){}.getType());
+    }
+
+    public Question getCurrentQuestion(){
+        return getQuestions().get(getLastIndex());
     }
 }

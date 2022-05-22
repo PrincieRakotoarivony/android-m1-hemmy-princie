@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.quiz.KidzyApplication;
 import com.quiz.models.Categorie;
 import com.quiz.models.PartieSave;
+import com.quiz.models.Question;
 import com.quiz.models.Utilisateur;
 import com.quiz.util.Const;
 import com.quiz.util.MyMap;
@@ -58,6 +59,30 @@ public class QuizService {
         }
     }
 
+    public void savePartie(PartieSave p){
+        SQLiteDatabase db = null;
+        try{
+            db = KidzyApplication.getDbHelper().getWritableDatabase();
+            db.beginTransaction();
+            ContentValues values = new ContentValues();
+            values.put("idUser", p.getIdUser());
+            values.put("idCategorie", p.getIdCategorie());
+            values.put("partieJson", p.getPartieJson());
+            values.put("nbrSuccess", p.getNbrSuccess());
+            values.put("nbrTotal", p.getNbrTotal());
+            values.put("lastIndex", p.getLastIndex());
+            long id = db.insert("partie", null, values);
+            System.out.println("id = "+id);
+            db.setTransactionSuccessful();
+        } finally {
+            if(db != null){
+                if(db.inTransaction())
+                    db.endTransaction();
+                db.close();
+            }
+        }
+    }
+
     @SuppressLint("Range")
     public PartieSave getLastPartie(String idCategorie) {
         SQLiteDatabase db = null;
@@ -81,5 +106,18 @@ public class QuizService {
         } finally {
             if(db != null) db.close();
         }
+    }
+
+
+
+    public List<Question> getQuestions(String idCategorie) throws Exception{
+        String token = KidzyApplication.get("token");
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/partie/save", Util.POST, new MyMap().putData("id_categorie", idCategorie), token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        List<Question> result = Util.getGson().fromJson(myResponse.getData(), new TypeToken<List<Question>>(){}.getType());
+        return result;
     }
 }
