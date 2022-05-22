@@ -6,6 +6,13 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/logout"
+        android:name="com.quiz.ui.fragments.LogoutFragment"
+        tools:layout="@layout/fragment_logout"
+        android:label="Déconnexion"
+        />
+
+    <fragment
         android:id="@+id/nav_pub_list"
         android:name="com.quiz.ui.fragments.PublicationListFragment"
         android:label="Actualités"
