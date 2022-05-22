@@ -9,15 +9,13 @@ const CoursSchema = new mongoose.Schema({
 });
 
 CoursSchema.statics.findAll = async function (params) {
-    return await Cours
-        .find({
-            ...params.crt,
-            nom: { $regex: new RegExp(`.*${params.search}.*`), $options: "i" },
-        })
-        .sort({ nom: 1 })
+    return await Cours.find({
+        ...params.crt,
+        nom: { $regex: new RegExp(`.*${params.search}.*`), $options: "i" },
+    })
         .skip((params.pageNumber - 1) * params.nPerPage)
-        .limit(params.nPerPage)
-        .toArray();;
+        .limit(params.nPerPage);
+    // return await Cours.find({});
 }
 
 

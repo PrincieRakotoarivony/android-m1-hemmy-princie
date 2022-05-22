@@ -198,7 +198,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_categorie\": \"6288edb7500c7da9eb7e6658\"\r\n}",
+					"raw": "{\r\n    \"id_categorie\": \"6288ed94500c7da9eb7e6650\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -279,10 +279,40 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Liste des cours",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pageNumber\": 2,\r\n    \"nPerPage\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/cours",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cours"
+					]
+				}
 			},
 			"response": []
 		}
