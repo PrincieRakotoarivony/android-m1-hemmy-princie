@@ -42,13 +42,17 @@ public class QuizService {
         return result;
     }
 
+    public void deleteLastPartie(SQLiteDatabase db, String idCategorie){
+        int count = db.delete("partie", " idUser = ? and idCategorie = ? ", new String[]{KidzyApplication.get("idUser"), idCategorie});
+        System.out.println("Count = "+count);
+    }
+
     public void deleteLastPartie(String idCategorie){
         SQLiteDatabase db = null;
         try{
             db = KidzyApplication.getDbHelper().getWritableDatabase();
             db.beginTransaction();
-            int count = db.delete("partie", " idUser = ? and idCategorie = ? ", new String[]{KidzyApplication.get("idUser"), idCategorie});
-            System.out.println("Count = "+count);
+            deleteLastPartie(db, idCategorie);
             db.setTransactionSuccessful();
         } finally {
             if(db != null){
@@ -64,6 +68,8 @@ public class QuizService {
         try{
             db = KidzyApplication.getDbHelper().getWritableDatabase();
             db.beginTransaction();
+            deleteLastPartie(db, p.getIdCategorie());
+
             ContentValues values = new ContentValues();
             values.put("idUser", p.getIdUser());
             values.put("idCategorie", p.getIdCategorie());

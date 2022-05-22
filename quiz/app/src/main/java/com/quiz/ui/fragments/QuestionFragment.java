@@ -1,5 +1,8 @@
 package com.quiz.ui.fragments;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,6 +38,7 @@ import com.quiz.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class QuestionFragment extends BaseFragment {
@@ -48,6 +52,8 @@ public class QuestionFragment extends BaseFragment {
     LinearLayout choiceContainer;
     List<MyChoiceButton> choices;
     Button btnNext;
+
+    Dialog partieDialog;
 
 
     @Override
@@ -64,6 +70,11 @@ public class QuestionFragment extends BaseFragment {
         View root = inflater.inflate(R.layout.fragment_question, container, false);
         initBase(root, false);
         quizService = QuizService.getInstance();
+
+        partieDialog = new Dialog(getActivity(), R.style.AnimateDialog);
+        partieDialog.setContentView(R.layout.partie_choice_popup);
+        Objects.requireNonNull(partieDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        partieDialog.setCanceledOnTouchOutside(false);
 
         stepText = root.findViewById(R.id.step_text);
         questionText = root.findViewById(R.id.question_text);
@@ -91,11 +102,40 @@ public class QuestionFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         lastP = quizService.getLastPartie(idCategorie);
         if(lastP == null) {
-            getQuestions();
+            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.GONE);
         } else {
-            setQuestion();
+            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.VISIBLE);
         }
 
+        partieDialog
+                .findViewById(R.id.last_partie_btn)
+                .setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setQuestion();
+                        partieDialog.dismiss();
+                    }
+                });
+        partieDialog
+                .findViewById(R.id.new_partie_btn)
+                .setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getQuestions();
+                        partieDialog.dismiss();
+                    }
+                });
+        partieDialog
+                .findViewById(R.id.cancel_partie_btn)
+                .setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(view).navigate(R.id.question_to_home);
+                        partieDialog.dismiss();
+                    }
+                });
+
+        partieDialog.show();
     }
 
     public void getQuestions(){
