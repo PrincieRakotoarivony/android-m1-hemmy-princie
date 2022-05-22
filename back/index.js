@@ -34,6 +34,7 @@ app.get('/', function (req, res){
     res.json({message: 'Welcome to kidzy'});
 })
 
+console.clear();
 const port = process.env.PORT || 3000;
 app.listen(port, function (){
     console.log(`Listening on port ${port} ${new Date()}`);

@@ -68,9 +68,13 @@ PartieSchema.statics.quiz = function(data){
     let quizes = [];
     quizesIndexes.map((quizPart) => {
         let target = data[quizPart.target];
-        let suggestions = [];
+        target.isCorrect = true;
+        console.log('target', target)
+        let suggestions = [target];
         quizPart.suggestions.map((sugg) => {
-            suggestions.push(data[sugg]);
+            let d = data[sugg];
+            d.isCorrect = false;
+            suggestions.push(d);
         });
         quizes.push({target, suggestions});
     });

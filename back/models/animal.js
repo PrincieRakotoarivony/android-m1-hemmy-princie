@@ -6,6 +6,7 @@ const AnimalSchema = new mongoose.Schema({
     nom: {type: String, required: [true, "Nom obligatoire"]},
     description: String,
     img: String,
+    isCorrect: {type: Boolean, default: false}
 });
 
 AnimalSchema.statics.findAll = async function(){
