@@ -4,6 +4,7 @@ const Categorie = require('./categorie');
 const Animal = require('./animal');
 const Pays = require('./pays');
 const Partie = require('./partie');
+const Cours = require('./cours');
 
 
 module.exports = {
@@ -13,4 +14,5 @@ module.exports = {
     Animal,
     Pays,
     Partie,
+    Cours,
 };
