@@ -19,7 +19,7 @@ import com.quiz.R;
 import java.util.Objects;
 
 
-public class PublicationFragment extends Fragment {
+public class PublicationFragment extends BaseFragment {
 
     Dialog commentDialog;
 

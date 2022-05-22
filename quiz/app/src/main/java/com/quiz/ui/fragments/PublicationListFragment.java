@@ -13,7 +13,7 @@ import com.google.android.material.card.MaterialCardView;
 import com.quiz.R;
 
 
-public class PublicationListFragment extends Fragment {
+public class PublicationListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.quiz.R;
 
 
-public class QuestionFragment extends Fragment {
+public class QuestionFragment extends BaseFragment {
     int amount;
 
     @Override

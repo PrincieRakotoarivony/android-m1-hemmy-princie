@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import com.quiz.R;
 
 
-public class ThemeFragment extends Fragment {
+public class ThemeFragment extends BaseFragment {
 
 
     @Override

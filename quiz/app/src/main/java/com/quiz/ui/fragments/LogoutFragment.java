@@ -25,7 +25,7 @@ import com.quiz.util.Util;
 import java.util.Objects;
 
 
-public class LogoutFragment extends Fragment {
+public class LogoutFragment extends BaseFragment {
 
     AuthService authService;
 
