@@ -6,6 +6,7 @@ const Pays = require('./pays');
 const Partie = require('./partie');
 const Cours = require('./cours');
 const Theme = require('./theme');
+const Publication = require('./publication');
 
 
 module.exports = {
@@ -17,4 +18,5 @@ module.exports = {
     Partie,
     Cours,
     Theme,
+    Publication,
 };

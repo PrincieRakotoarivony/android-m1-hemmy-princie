@@ -5,6 +5,7 @@ const animal = require('./animal');
 const pays = require('./pays');
 const cours = require('./cours');
 const theme = require('./theme');
+const publication = require('./publication');
 
 module.exports = {
     auth,
@@ -14,4 +15,5 @@ module.exports = {
     pays,
     cours,
     theme,
+    publication,
 }

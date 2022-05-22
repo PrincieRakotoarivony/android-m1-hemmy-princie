@@ -422,6 +422,113 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Liste publication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pageNumber\": 1,\r\n    \"nPerPage\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/publication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"publication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save publication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"Post\",\r\n    \"description\": \"Post ici\",\r\n    \"id_theme\": \"628aab37173b76a8441315ae\",\r\n    \"img\": \"post.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/publication/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"publication",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir une publication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/publication/628ab03e0ea8f73c23edde94",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"publication",
+						"628ab03e0ea8f73c23edde94"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
