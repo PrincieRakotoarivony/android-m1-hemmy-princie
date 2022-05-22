@@ -70,13 +70,11 @@ public class QuestionFragment extends BaseFragment {
         questionImage = root.findViewById(R.id.question_img);
         choiceContainer = root.findViewById(R.id.choice_container);
         btnNext = root.findViewById(R.id.btn_next);
-        btnNext.setVisibility(View.GONE);
+
         btnNext.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("idCategorie", idCategorie);
-                Navigation.findNavController(getView()).navigate(R.id.question_to_question, bundle);
+                setQuestion();
             }
         });
 
@@ -142,6 +140,8 @@ public class QuestionFragment extends BaseFragment {
     }
 
     public void setQuestion(){
+        btnNext.setVisibility(View.GONE);
+
         Question q = lastP.getCurrentQuestion();
         stepText.setText(String.format("%d/%d", lastP.getLastIndex()+1, lastP.getNbrTotal()));
 
@@ -192,7 +192,7 @@ public class QuestionFragment extends BaseFragment {
 
                     mp.start();
                     lastP.setLastIndex(lastP.getLastIndex()+1);
-                    quizService.savePartie(lastP);
+                    quizService.updatePartie(lastP);
                     btnNext.setVisibility(View.VISIBLE);
                 }
             });
