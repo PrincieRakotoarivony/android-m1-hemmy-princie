@@ -33,7 +33,7 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        setLoadingLayout(root.findViewById(R.id.common_loading));
+        initBase(root);
         quizService = QuizService.getInstance();
 
         /*
