@@ -24,6 +24,7 @@ import com.quiz.R;
 import com.quiz.models.Utilisateur;
 import com.quiz.services.AuthService;
 import com.quiz.util.MyMap;
+import com.quiz.util.Util;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -81,9 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(o instanceof Exception){
                             Exception ex = (Exception)o;
                             ex.printStackTrace();
-                            Snackbar.make(v, ex.getMessage(), Snackbar.LENGTH_LONG)
-                                    .setBackgroundTint(Color.RED)
-                                    .show();
+                            Util.showErrorMessage(ex.getMessage(), v);
                         } else {
                             MyMap result = (MyMap) o;
                             KidzyApplication.set("token", (String)result.get("token"));

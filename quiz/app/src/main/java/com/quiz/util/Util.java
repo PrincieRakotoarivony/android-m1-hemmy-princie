@@ -1,5 +1,9 @@
 package com.quiz.util;
 
+import android.graphics.Color;
+import android.view.View;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -54,6 +58,7 @@ public class Util {
 
             RequestBody requestBody = null;
             if(body != null){
+                System.out.println(Util.getGson().toJson(body));
                 requestBody = RequestBody.create(Util.getGson().toJson(body), JSON);
             }
 
@@ -74,4 +79,7 @@ public class Util {
         }
     }
 
+    public static void showErrorMessage(String message, View view){
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG).setBackgroundTint(Color.RED).show();
+    }
 }

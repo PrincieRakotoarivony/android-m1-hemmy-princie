@@ -185,19 +185,37 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
+                <LinearLayout
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_marginTop="50dp"
                     android:id="@+id/sign_up_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:gravity="center"
                     android:background="@drawable/btn_radient"
-                    android:fontFamily="@font/righteous"
-                    android:text="s'inscrire"
-                    android:textColor="@color/white"
                     android:paddingHorizontal="25dp"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="s'inscrire"
+                        android:fontFamily="@font/righteous"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                        />
+                    <ProgressBar
+                        android:id="@+id/sign_up_progress"
+                        android:theme="@style/AppTheme.BtnLoadingTheme"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/login_text"

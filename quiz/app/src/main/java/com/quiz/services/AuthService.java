@@ -3,6 +3,7 @@ package com.quiz.services;
 import com.google.gson.JsonObject;
 import com.quiz.models.Utilisateur;
 import com.quiz.util.Const;
+import com.quiz.util.MultipleException;
 import com.quiz.util.MyMap;
 import com.quiz.util.MyResponse;
 import com.quiz.util.Util;
@@ -26,7 +27,7 @@ public class AuthService {
     public MyMap login(Utilisateur user) throws Exception {
         MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/auth/login", Util.POST, user, null);
         if(myResponse.getMeta().getStatus() != 1){
-            throw new Exception(myResponse.getMeta().getMessage());
+            throw myResponse.getMeta().convertToException();
         }
 
         JsonObject data = myResponse.getData().getAsJsonObject();
@@ -37,5 +38,15 @@ public class AuthService {
                 .putData("token", token);
 
         return result;
+    }
+
+    public String signUp(Utilisateur user) throws Exception{
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/auth/signUp", Util.POST, user, null);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        String token = myResponse.getData().getAsString();
+        return token;
     }
 }

@@ -10,6 +10,15 @@ public class Utilisateur {
     String nom;
     String prenom;
     Timestamp dateNaissance;
+    String confirmMdp;
+
+    public String getConfirmMdp() {
+        return confirmMdp;
+    }
+
+    public void setConfirmMdp(String confirmMdp) {
+        this.confirmMdp = confirmMdp;
+    }
 
     public String get_id() {
         return _id;

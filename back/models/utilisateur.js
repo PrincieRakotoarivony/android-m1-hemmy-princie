@@ -16,9 +16,13 @@ const UtilisateurSchema = new mongoose.Schema({
         index: [true, 'Adresse e-mail déjà utilisée'],
         unique: [true]
     },
-    nom: {type: String},
-    prenom: {type: String},
-    dateNaissance: {type: Date, required: [true, 'Date de naissance obligatoire']},
+    nom: {
+        type: String, 
+        required: [true, 'Nom obligatoire'], 
+        trim: true
+    },
+    prenom: {type: String, trim: true},
+    dateNaissance: {type: Date/*, required: [true, 'Date de naissance obligatoire']*/},
     mdp: {type: String, required: [true, 'Mot de passe obligatoire']},
 });
 
