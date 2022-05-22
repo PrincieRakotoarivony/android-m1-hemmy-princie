@@ -30,14 +30,16 @@ function quizes(data){
   let quizesIndexes = quizIndexes(data.length);
   let quizes = [];
   quizesIndexes.map((quizPart) => {
-      let target = data[quizPart.target];
+      let target = JSON.parse(JSON.stringify(data[quizPart.target]));
       target.isCorrect = true;
-      let suggestions = [target];
+      let suggestions = [];
       quizPart.suggestions.map((sugg) => {
-          let d = data[sugg];
+          let d = JSON.parse(JSON.stringify(data[sugg]));
           d.isCorrect = false;
           suggestions.push(d);
       });
+      let postTarget = Math.floor(Math.random() * 4);
+      suggestions.splice(postTarget, 0, target);
       quizes.push({target, suggestions});
   });
   return quizes;
