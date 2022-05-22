@@ -33,6 +33,7 @@ router.post('/save', async function (req, res) {
         //await partie.save();
         res.json(responseBuilder.success(detail));
     } catch (error) {
+        console.error(error);
         res.json(responseBuilder.error(error));
     }
 });

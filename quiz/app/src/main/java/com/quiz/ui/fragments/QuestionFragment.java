@@ -54,6 +54,7 @@ public class QuestionFragment extends BaseFragment {
     Button btnNext;
 
     Dialog partieDialog;
+    Dialog resultDialog;
 
 
     @Override
@@ -76,6 +77,12 @@ public class QuestionFragment extends BaseFragment {
         Objects.requireNonNull(partieDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         partieDialog.setCanceledOnTouchOutside(false);
 
+
+        resultDialog = new Dialog(getActivity(), R.style.AnimateDialog);
+        resultDialog.setContentView(R.layout.result_popup);
+        Objects.requireNonNull(resultDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        resultDialog.setCanceledOnTouchOutside(false);
+
         stepText = root.findViewById(R.id.step_text);
         questionText = root.findViewById(R.id.question_text);
         questionImage = root.findViewById(R.id.question_img);
@@ -93,19 +100,6 @@ public class QuestionFragment extends BaseFragment {
         animToRight = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_right);
         animToLeft = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_left);
 
-
-        return root;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        lastP = quizService.getLastPartie(idCategorie);
-        if(lastP == null) {
-            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.GONE);
-        } else {
-            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.VISIBLE);
-        }
 
         partieDialog
                 .findViewById(R.id.last_partie_btn)
@@ -130,10 +124,43 @@ public class QuestionFragment extends BaseFragment {
                 .setOnClickListener(new Button.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Navigation.findNavController(view).navigate(R.id.question_to_home);
+                        Navigation.findNavController(root).navigate(R.id.question_to_home);
                         partieDialog.dismiss();
                     }
                 });
+
+        resultDialog
+                .findViewById(R.id.result_to_new_partie)
+                .setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getQuestions();
+                        resultDialog.dismiss();
+                    }
+                });
+
+        resultDialog
+                .findViewById(R.id.result_to_home)
+                .setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(root).navigate(R.id.question_to_home);
+                        resultDialog.dismiss();
+                    }
+                });
+
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        lastP = quizService.getLastPartie(idCategorie);
+        if(lastP == null) {
+            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.GONE);
+        } else {
+            partieDialog.findViewById(R.id.last_partie_btn).setVisibility(View.VISIBLE);
+        }
 
         partieDialog.show();
     }
@@ -232,8 +259,18 @@ public class QuestionFragment extends BaseFragment {
 
                     mp.start();
                     lastP.setLastIndex(lastP.getLastIndex()+1);
-                    quizService.updatePartie(lastP);
-                    btnNext.setVisibility(View.VISIBLE);
+
+
+                    if(lastP.getLastIndex() == lastP.getNbrTotal()){
+                        quizService.deleteLastPartie(idCategorie);
+                        TextView resultText = resultDialog.findViewById(R.id.result);
+                        resultText.setText(String.format("%d/%d", lastP.getNbrSuccess(), lastP.getNbrTotal()));
+                        resultDialog.show();
+                    } else {
+                        quizService.updatePartie(lastP);
+                        btnNext.setVisibility(View.VISIBLE);
+                    }
+
                 }
             });
 
@@ -243,4 +280,6 @@ public class QuestionFragment extends BaseFragment {
             i++;
         }
     }
+
+
 }
