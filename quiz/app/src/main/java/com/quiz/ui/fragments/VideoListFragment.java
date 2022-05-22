@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.google.android.material.card.MaterialCardView;
 import com.quiz.R;
 
-public class VideoListFragment extends Fragment {
+public class VideoListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

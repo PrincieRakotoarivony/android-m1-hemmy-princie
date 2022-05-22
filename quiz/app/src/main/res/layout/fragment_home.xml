@@ -143,4 +143,21 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/common_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loading_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        >
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:theme="@style/AppTheme.SplashLoadingTheme"
+            />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

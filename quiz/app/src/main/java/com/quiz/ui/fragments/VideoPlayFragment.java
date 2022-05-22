@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.quiz.R;
 
 
-public class VideoPlayFragment extends Fragment {
+public class VideoPlayFragment extends BaseFragment {
 
 
 

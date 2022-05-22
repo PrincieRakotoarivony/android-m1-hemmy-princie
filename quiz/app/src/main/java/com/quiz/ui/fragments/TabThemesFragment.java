@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.quiz.R;
 import com.quiz.ui.SectionsPagerAdapter;
 
-public class TabThemesFragment extends Fragment {
+public class TabThemesFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

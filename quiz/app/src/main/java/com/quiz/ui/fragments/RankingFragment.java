@@ -15,7 +15,7 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.quiz.R;
 
-public class RankingFragment extends Fragment {
+public class RankingFragment extends BaseFragment {
 
 
     @Override

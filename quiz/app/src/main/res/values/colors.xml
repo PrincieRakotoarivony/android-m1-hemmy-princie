@@ -39,4 +39,6 @@
 
     <color name="gray_bg">#f4f0ec</color>
     <color name="my_gray">#7F8487</color>
+
+    <color name="loading_overlay">#55000000</color>
 </resources>

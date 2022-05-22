@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.quiz.R;
 
 
-public class NewThemeFragment extends Fragment {
+public class NewThemeFragment extends BaseFragment {
 
 
     @Override

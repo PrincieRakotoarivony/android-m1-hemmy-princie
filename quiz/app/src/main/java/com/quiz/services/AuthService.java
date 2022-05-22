@@ -49,4 +49,11 @@ public class AuthService {
         String token = myResponse.getData().getAsString();
         return token;
     }
+
+    public void logout(String token) throws Exception{
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/auth/logout", Util.DELETE, null, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+    }
 }
