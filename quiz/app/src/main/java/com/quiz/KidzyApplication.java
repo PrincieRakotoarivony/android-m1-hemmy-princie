@@ -42,4 +42,10 @@ public class KidzyApplication extends Application{
     public static boolean has(String key){
         return get(key) != null;
     }
+
+    public static int convertDpToPx(int dps){
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        int pixels = (int) (dps * scale + 0.5f);
+        return pixels;
+    }
 }

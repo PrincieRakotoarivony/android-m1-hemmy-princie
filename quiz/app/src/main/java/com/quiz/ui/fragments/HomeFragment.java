@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ import com.quiz.R;
 import com.quiz.models.Categorie;
 import com.quiz.services.QuizService;
 import com.quiz.ui.LoginActivity;
+import com.quiz.util.Const;
+import com.quiz.util.DownloadImageFromInternet;
 import com.quiz.util.Util;
 
 import java.util.List;
@@ -94,13 +97,16 @@ public class HomeFragment extends BaseFragment {
         LinearLayout catContainer = getView().findViewById(R.id.cat_container);
         catContainer.removeAllViewsInLayout();
 
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 210);
-        lp.topMargin = 40;
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, KidzyApplication.convertDpToPx(110));
+        lp.topMargin = KidzyApplication.convertDpToPx(10);
 
         for(Categorie cat: categories){
             View catView = getLayoutInflater().inflate(R.layout.one_cat, null);
             TextView catName = catView.findViewById(R.id.cat_name);
             catName.setText(cat.getNom());
+
+            ImageView catImg = catView.findViewById(R.id.cat_img);
+            new DownloadImageFromInternet(catImg).execute(Const.BASE_URL + "/" + cat.getImg());
             catContainer.addView(catView, lp);
         }
     }
