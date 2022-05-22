@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:padding="10dp"
+    android:gravity="center"
+    android:background="@drawable/comment_popup_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/last_partie_btn"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/righteous"
+            android:background="@drawable/btn_radient"
+            android:textColor="@color/white"
+            android:text="Continuer la dernière partie"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
+
+        <Button
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/new_partie_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/righteous"
+            android:background="@drawable/btn_radient"
+            android:textColor="@color/white"
+            android:text="Nouvelle partie"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
+
+        <Button
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cancel_partie_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/righteous"
+            android:background="@drawable/btn_radient"
+            android:textColor="@color/white"
+            android:text="Annuler"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</LinearLayout>
