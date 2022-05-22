@@ -1,5 +1,6 @@
 package com.quiz.ui.fragments;
 
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,10 +41,13 @@ public class QuestionFragment extends BaseFragment {
     QuizService quizService;
     PartieSave lastP;
 
+    Animation animToRight, animToLeft;
     TextView stepText, questionText;
     ImageView questionImage;
     LinearLayout choiceContainer;
     List<MyChoiceButton> choices;
+    Button btnNext;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,12 @@ public class QuestionFragment extends BaseFragment {
         questionText = root.findViewById(R.id.question_text);
         questionImage = root.findViewById(R.id.question_img);
         choiceContainer = root.findViewById(R.id.choice_container);
+        btnNext = root.findViewById(R.id.btn_next);
+        btnNext.setVisibility(View.GONE);
+
+        animToRight = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_right);
+        animToLeft = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_slide_in_left);
+
 
         return root;
     }
@@ -142,6 +154,8 @@ public class QuestionFragment extends BaseFragment {
         lp.topMargin = KidzyApplication.convertDpToPx(20);
 
         choices = new ArrayList<>();
+
+        int i=0;
         for(QuestionItem choice: q.getSuggestions()){
             Button choiceBtn = (Button)getLayoutInflater().inflate(R.layout.quiz_choice_btn, null);
             choiceBtn.setText(choice.getNom());
@@ -150,9 +164,11 @@ public class QuestionFragment extends BaseFragment {
             choiceBtn.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    MediaPlayer mp = null;
                     if(choice.isCorrect()){
-
+                        mp = MediaPlayer.create(getActivity(), R.raw.ding);
                     } else{
+                        mp = MediaPlayer.create(getActivity(), R.raw.wrong_buzzer);
                         choiceBtn.setBackgroundResource(R.drawable.choice_bg_error);
                     }
 
@@ -162,12 +178,16 @@ public class QuestionFragment extends BaseFragment {
                             cb.getBtn().setBackgroundResource(R.drawable.choice_bg_success);
                         }
                     }
+
+                    mp.start();
+                    btnNext.setVisibility(View.VISIBLE);
                 }
             });
 
             choiceContainer.addView(choiceBtn, lp);
             choices.add(new MyChoiceButton(choiceBtn, choice.isCorrect()));
-
+            choiceBtn.setAnimation(i%2 == 0 ? animToRight : animToLeft);
+            i++;
         }
     }
 }
