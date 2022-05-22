@@ -3,4 +3,5 @@ const responseBuilder = require('./response-builder');
 const tools = require('./tools');
 const constantes = require('./constantes');
 const mail = require('./mail');
-module.exports = {dbconnect, responseBuilder, tools, constantes, mail}
+const quiz = require('./quiz');
+module.exports = {dbconnect, responseBuilder, tools, constantes, mail, quiz}
