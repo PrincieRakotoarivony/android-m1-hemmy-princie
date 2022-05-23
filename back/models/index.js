@@ -10,6 +10,7 @@ const Abonnement = require('./abonnement');
 const Publication = require('./publication');
 const Comment = require('./comment');
 
+
 module.exports = {
     Token, 
     Utilisateur, 
@@ -21,5 +22,5 @@ module.exports = {
     Theme,
     Publication,
     Abonnement,
-    Comment,
+    Comment
 };

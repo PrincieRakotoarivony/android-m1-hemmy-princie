@@ -39,15 +39,6 @@ ThemeSchema.statics.findAll = async function (idUser, params) {
         .limit(params.nPerPage);
 }
 
-ThemeSchema.statics.createTheme = async function (params, user) {
-    params.img = 'imgs/theme/' + params.img;
-    const theme = new Theme(params);
-    theme._id = new mongoose.Types.ObjectId();
-    await theme.save();
-
-    // abonnement (id, idjoueur, idtheme, notif (true, false), status (1 par defaut, 0 rehefa mi-se desabonne))
-}
-
 ThemeSchema.statics.findDetailsById = async function (idUser, id) {
     let match = {};
     

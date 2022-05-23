@@ -71,7 +71,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
+							"value": "44df53abeb6125006b357727a4da920657874b85",
 							"type": "string"
 						}
 					]
@@ -478,7 +478,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"titre\": \"Molecule\",\r\n    \"description\": \"Molecule ici\",\r\n    \"id_theme\": \"628aa7d436460e9ea231a1da\",\r\n    \"img\": \"molecule.jpg\"\r\n}",
+					"raw": "{\r\n    \"titre\": \"Post\",\r\n    \"description\": \"Post ici\",\r\n    \"id_theme\": \"628aab37173b76a8441315ae\",\r\n    \"img\": \"post.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -525,154 +525,6 @@
 					"path": [
 						"publication",
 						"628ab03e0ea8f73c23edde94"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Changement abonnement notif",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/abonnement/628bbea212667dbce34246c9/settingNotification",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"abonnement",
-						"628bbea212667dbce34246c9",
-						"settingNotification"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Changement abonnement status",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/abonnement/628bbea212667dbce34246c9/settingStatus",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"abonnement",
-						"628bbea212667dbce34246c9",
-						"settingStatus"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Save commentaire",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_pub\": \"628bbea212667dbce34246c7\",\r\n    \"content\": \"C'est chouette\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/comment/save",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"comment",
-						"save"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Liste commentaire d'une publication",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "20e3edec520a73414606f09650219a9e4ac5fb44",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_pub\": \"628bbea212667dbce34246c7\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/comment",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"comment"
 					]
 				}
 			},

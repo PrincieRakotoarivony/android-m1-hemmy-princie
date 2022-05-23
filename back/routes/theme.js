@@ -20,7 +20,10 @@ router.post('/save', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        const theme = await Theme.createTheme(req.body, u);
+        req.body.img = 'imgs/theme/'+req.body.img;
+        const theme = new Theme(req.body);
+        theme._id = new mongoose.Types.ObjectId();
+        await theme.save();
         res.json(responseBuilder.success(theme._id));
     } catch(error){
         res.json(responseBuilder.error(error));

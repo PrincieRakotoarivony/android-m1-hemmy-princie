@@ -1,7 +1,8 @@
 const moment = require('moment');
 const sha1 = require('sha1');
 const { default: mongoose } = require("mongoose");
-const Abonnement = require('./abonnement');
+const Comment = require('./comment');
+
 const PublicationSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     titre: {type: String, trim: true, required: [true, "Titre obligatoire"]},
@@ -60,22 +61,6 @@ PublicationSchema.statics.findAll = async function (id_user, params) {
     .sort({datePub: -1})
     .skip((params.pageNumber - 1) * params.nPerPage)
     .limit(params.nPerPage);
-}
-
-PublicationSchema.statics.createPublication = async function (params, user) {
-    // save publication
-    params.img = 'imgs/publication/' + params.img;
-    const publication = new Publication(params);
-    publication._id = new mongoose.Types.ObjectId();
-    publication.id_user = user._id;
-    publication.id_theme = new mongoose.Types.ObjectId(params.id_theme);
-    await publication.save();
-
-    // save abonnement
-    const abonnement = new Abonnement({notif: true, status: 1, id_theme: publication.id_theme, id_user: user._id});
-    abonnement._id = new mongoose.Types.ObjectId();
-    await abonnement.save();
-    return publication._id;
 }
 
 PublicationSchema.statics.findDetailsById = async function(id_user, id){
