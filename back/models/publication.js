@@ -120,6 +120,13 @@ PublicationSchema.statics.findDetailsById = async function(id_user, id){
     return pub;    
 }
 
+PublicationSchema.methods.comment = async function (id_user, comment){
+    comment.id_pub = this._id;
+    comment.id_user = id_user;
+    comment._id = new mongoose.Types.ObjectId();
+    await comment.save();
+    return comment;
+}
 
 const Publication = mongoose.model('Publication', PublicationSchema);
 

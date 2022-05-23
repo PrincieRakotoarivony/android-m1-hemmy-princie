@@ -3,6 +3,7 @@ package com.quiz.services;
 import com.google.gson.reflect.TypeToken;
 import com.quiz.KidzyApplication;
 import com.quiz.models.Categorie;
+import com.quiz.models.Comment;
 import com.quiz.models.Publication;
 import com.quiz.models.Theme;
 import com.quiz.util.Const;
@@ -116,6 +117,18 @@ public class ThemeService {
 
         Publication result = Util.getGson().fromJson(myResponse.getData(), Publication.class);
         return result;
+    }
+
+    public String comment(Comment comment) throws Exception {
+        String token = KidzyApplication.get("token");
+
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/publication/comment", Util.POST, comment, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        String id = myResponse.getData().getAsString();
+        return id;
     }
 
 }
