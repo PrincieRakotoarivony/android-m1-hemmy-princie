@@ -33,7 +33,6 @@ public class VideoListFragment extends BaseFragment {
     TextView seeMoreText;
     ProgressBar seeMoreProgress;
     CoursService coursService;
-    List<Cours> cours;
     int page = 1;
     int nPerPage = 5;
 
@@ -89,11 +88,10 @@ public class VideoListFragment extends BaseFragment {
                         ex.printStackTrace();
                         Util.showErrorMessage(ex.getMessage(), getView());
                     } else {
-                        List<Cours> coursAppend = (List<Cours>) o;
-                        if(page == 1) cours = coursAppend;
-                        else cours.addAll(coursAppend);
-                        setCours();
+                        List<Cours> cours = (List<Cours>) o;
                         VideoListFragment.this.page = page;
+                        setCours(cours);
+
                     }
                 } catch (Exception ex){
                     ex.printStackTrace();
@@ -126,9 +124,9 @@ public class VideoListFragment extends BaseFragment {
         }
     }
 
-    public void setCours() {
+    public void setCours(List<Cours> cours) {
         LinearLayout videoContainer = getView().findViewById(R.id.video_list_container);
-        videoContainer.removeAllViewsInLayout();
+        if(page == 1) videoContainer.removeAllViewsInLayout();
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, KidzyApplication.convertDpToPx(100));
         lp.topMargin = KidzyApplication.convertDpToPx(10);
