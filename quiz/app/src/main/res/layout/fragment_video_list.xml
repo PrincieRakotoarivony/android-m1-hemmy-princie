@@ -302,10 +302,30 @@
                     android:layout_height="match_parent"
                     android:inputType="text"
                     android:textColor="@color/colorPrimaryDark"
+                    android:paddingRight="47dp"
                     android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            style="@style/Widget.AppCompat.Button"
+            android:id="@+id/search_btn"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/btn_search"
+            android:padding="5dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_fas_search"
+                android:tint="@color/white" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
