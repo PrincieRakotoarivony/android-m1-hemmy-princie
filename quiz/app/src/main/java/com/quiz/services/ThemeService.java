@@ -68,4 +68,13 @@ public class ThemeService {
             throw myResponse.getMeta().convertToException();
         }
     }
+
+    public void changeNotif(String id, boolean notif) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyMap body = new MyMap().putData("notif", notif);
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/theme/" + id + "/notif", Util.POST, body, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+    }
 }

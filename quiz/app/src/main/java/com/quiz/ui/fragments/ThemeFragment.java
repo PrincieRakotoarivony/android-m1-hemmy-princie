@@ -68,14 +68,21 @@ public class ThemeFragment extends BaseFragment {
         btnSubscribe.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initData(true);
+                initData(true, null);
             }
         });
 
         btnUnsubscribe.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initData(false);
+                initData(false, null);
+            }
+        });
+
+        themeNotif.setOnClickListener(new SwitchMaterial.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initData(null, themeNotif.isChecked());
             }
         });
 
@@ -90,10 +97,10 @@ public class ThemeFragment extends BaseFragment {
 
     @Override
     public void initData(){
-        initData(null);
+        initData(null, null);
     }
 
-    public void initData(Boolean subscription){
+    public void initData(Boolean subscription, Boolean notif){
         new AsyncTask<Object, Object, Object>() {
             @Override
             protected void onPostExecute(Object o) {
@@ -121,6 +128,9 @@ public class ThemeFragment extends BaseFragment {
                     if(subscription != null){
                         if(subscription) themeService.subscribe(id);
                         else themeService.unsubscribe(id);
+                    }
+                    if(notif != null){
+                        themeService.changeNotif(id, notif);
                     }
                     return themeService.findThemeById(id);
                 } catch (Exception ex){

@@ -76,6 +76,13 @@ ThemeSchema.methods.unsubscribe = async function (idUser){
     await Abonnement.deleteMany({id_user: idUser, id_theme: this._id});
 }
 
+ThemeSchema.methods.changeNotif = async function (idUser, notif){
+    const abonm = await Abonnement.findOne({id_user: idUser, id_theme: this._id});
+    if(!abonm) throw new Error("Utilisateur non abonné");
+    abonm.notif = notif;
+    await abonm.save();
+}
+
 const Theme = mongoose.model('Theme', ThemeSchema);
 
 module.exports = Theme;

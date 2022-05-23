@@ -42,6 +42,19 @@ router.post('/:id/subscribe', async function(req, res){
     }
 });
 
+router.post('/:id/notif', async function(req, res){
+    try{
+        const token = tools.extractToken(req.headers.authorization);
+        const u = await Utilisateur.findUser(token);
+        const theme = await Theme.findById(req.params.id);
+        await theme.changeNotif(u._id, req.body.notif);
+        console.log("change notif");
+        res.json(responseBuilder.success("ok"));
+    } catch(error){
+        res.json(responseBuilder.error(error));
+    }
+});
+
 router.delete('/:id/unsubscribe', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
