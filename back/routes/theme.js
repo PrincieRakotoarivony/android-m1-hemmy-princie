@@ -1,6 +1,6 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
-const { Theme, Utilisateur } = require('../models');
+const { Theme, Utilisateur, Abonnement } = require('../models');
 const {responseBuilder, tools, mail} = require('../utils');
 const { constantes } = require('../utils');
  const router = express.Router();
@@ -9,7 +9,7 @@ router.post('/', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        const result = await Theme.findAll(req.body);
+        const result = await Theme.findAll(u._id, req.body);
         res.json(responseBuilder.success(result));
     } catch(error){
         res.json(responseBuilder.error(error));
@@ -30,11 +30,35 @@ router.post('/save', async function(req, res){
     }
 });
 
+router.post('/:id/subscribe', async function(req, res){
+    try{
+        const token = tools.extractToken(req.headers.authorization);
+        const u = await Utilisateur.findUser(token);
+        const theme = await Theme.findById(req.params.id);
+        const abonm = await theme.subscribe(u._id);
+        res.json(responseBuilder.success(abonm._id));
+    } catch(error){
+        res.json(responseBuilder.error(error));
+    }
+});
+
+router.delete('/:id/unsubscribe', async function(req, res){
+    try{
+        const token = tools.extractToken(req.headers.authorization);
+        const u = await Utilisateur.findUser(token);
+        const theme = await Theme.findById(req.params.id);
+        await theme.unsubscribe(u._id);
+        res.json(responseBuilder.success("ok"));
+    } catch(error){
+        res.json(responseBuilder.error(error));
+    }
+});
+
 router.get('/:id', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        const result = await Theme.findById(req.params.id);
+        const result = await Theme.findDetailsById(u._id, req.params.id);
         res.json(responseBuilder.success(result));
     } catch(error){
         res.json(responseBuilder.error(error));
