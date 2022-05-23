@@ -27,8 +27,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0:
-                return new RankingFragment();
+            case 1:
+                return new RankingFragment(false);
             default:
                 return new RankingFragment();
         }

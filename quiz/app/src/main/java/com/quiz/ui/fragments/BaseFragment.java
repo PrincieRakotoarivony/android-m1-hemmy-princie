@@ -15,10 +15,6 @@ public class BaseFragment extends Fragment {
     private RelativeLayout loadingLayout;
     private SwipeRefreshLayout refreshLayout;
 
-    public MainActivity getMainActivity(){
-        return (MainActivity)getActivity();
-    }
-
     public void initBase(View root){
         initBase(root, true);
     }
