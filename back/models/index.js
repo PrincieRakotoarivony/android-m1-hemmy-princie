@@ -8,6 +8,7 @@ const Cours = require('./cours');
 const Theme = require('./theme');
 const Abonnement = require('./abonnement');
 const Publication = require('./publication');
+const Comment = require('./comment');
 
 
 module.exports = {
@@ -20,5 +21,6 @@ module.exports = {
     Cours,
     Theme,
     Publication,
-    Abonnement
+    Abonnement,
+    Comment
 };

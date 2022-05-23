@@ -1,6 +1,7 @@
 const moment = require('moment');
 const sha1 = require('sha1');
 const { default: mongoose } = require("mongoose");
+const Comment = require('./comment');
 
 const PublicationSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
@@ -63,9 +64,60 @@ PublicationSchema.statics.findAll = async function (id_user, params) {
 }
 
 PublicationSchema.statics.findDetailsById = async function(id){
-    return await Publication.findById({_id: id})
-    .populate('id_theme')
-    .populate('id_user');
+    let aggregateParams = [
+        {$match: {_id: id}},
+        {
+            $lookup: {
+                from: "themes",
+                localField: "id_theme",
+                foreignField: "_id",
+                as: "theme"
+            }
+        },
+        {$unwind: {path: "$theme"}},
+        {
+            $lookup: {
+                from: "utilisateurs",
+                localField: "id_user",
+                foreignField: "_id",
+                as: "user"
+            }
+        },
+        {$unwind: {path: "$user"}},
+        {
+            $lookup: {
+                from: "abonnements",
+                localField: "id_theme",
+                foreignField: "id_theme",
+                pipeline: [
+                    {$match: {id_user}}
+                ],
+                as: "abonm"
+            }
+        },
+        {$unwind: {path: "$abonm", preserveNullAndEmptyArrays: true}}
+    ];
+
+    const result = await Publication.aggregate(aggregateParams);
+    if(result.length == 0) throw new Error("Publication introuvable");
+    const pub = result[0];
+
+    aggregateParams = [
+        {$match: {id_pub: id}},
+        {
+            $lookup: {
+                from: "utilisateurs",
+                localField: "id_user",
+                foreignField: "_id",
+                as: "user"
+            }
+        },
+        {$unwind: {path: "$user"}}
+    ];
+    pub.comments = await Comment
+        .aggregate(aggregateParams)
+        .sort({dateComment: -1});
+    return pub;    
 }
 
 

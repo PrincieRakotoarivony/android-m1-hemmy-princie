@@ -99,6 +99,15 @@ public class ThemeFragment extends BaseFragment {
             }
         });
 
+        btnSeePub.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle params = new Bundle();
+                params.putString("idTheme", id);
+                Navigation.findNavController(root).navigate(R.id.theme_to_pub_list, params);
+            }
+        });
+
         return root;
     }
 
