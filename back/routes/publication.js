@@ -19,13 +19,8 @@ router.post('/', async function(req, res){
 router.post('/save', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
-        const u = await Utilisateur.findUser(token);
-        req.body.img = 'imgs/publication/'+req.body.img;
-        const publication = new Publication(req.body);
-        publication._id = new mongoose.Types.ObjectId();
-        publication.id_user = u._id;
-        publication.id_theme = new mongoose.Types.ObjectId(req.body.id_theme); 
-        await publication.save();
+        const user = await Utilisateur.findUser(token);
+        const publication = await Publication.createPublication(req.body, user);
         res.json(responseBuilder.success(publication._id));
     } catch(error){
         res.json(responseBuilder.error(error));
