@@ -37,4 +37,15 @@ public class ThemeService {
         List<Theme> result = Util.getGson().fromJson(myResponse.getData(), new TypeToken<List<Theme>>(){}.getType());
         return result;
     }
+
+    public Theme findThemeById(String id) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/theme/" + id, Util.GET, null, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        Theme result = Util.getGson().fromJson(myResponse.getData(), Theme.class);
+        return result;
+    }
 }
