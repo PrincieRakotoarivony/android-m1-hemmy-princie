@@ -7,6 +7,7 @@ const cours = require('./cours');
 const theme = require('./theme');
 const publication = require('./publication');
 const abonnement = require('./abonnement');
+const comment = require('./comment');
 
 module.exports = {
     auth,
@@ -18,4 +19,5 @@ module.exports = {
     theme,
     publication,
     abonnement,
+    comment,
 }

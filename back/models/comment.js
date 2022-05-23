@@ -8,10 +8,6 @@ const CommentSchema = new mongoose.Schema({
     content: {type: String, trim: true, required: [true, "Contenu obligatoire"]}
 });
 
-
 const Comment = mongoose.model('Comment', CommentSchema);
-
-
-
 
 module.exports = Comment;

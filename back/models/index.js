@@ -8,7 +8,6 @@ const Cours = require('./cours');
 const Theme = require('./theme');
 const Abonnement = require('./abonnement');
 const Publication = require('./publication');
-const Abonnement = require('./abonnement');
 const Comment = require('./comment');
 
 module.exports = {

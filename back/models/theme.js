@@ -39,7 +39,6 @@ ThemeSchema.statics.findAll = async function (idUser, params) {
         .limit(params.nPerPage);
 }
 
-<<<<<<< HEAD
 ThemeSchema.statics.createTheme = async function (params, user) {
     params.img = 'imgs/theme/' + params.img;
     const theme = new Theme(params);
@@ -49,7 +48,6 @@ ThemeSchema.statics.createTheme = async function (params, user) {
     // abonnement (id, idjoueur, idtheme, notif (true, false), status (1 par defaut, 0 rehefa mi-se desabonne))
 }
 
-=======
 ThemeSchema.statics.findDetailsById = async function (idUser, id) {
     let match = {};
     
@@ -93,7 +91,6 @@ ThemeSchema.methods.changeNotif = async function (idUser, notif){
     abonm.notif = notif;
     await abonm.save();
 }
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
 
 const Theme = mongoose.model('Theme', ThemeSchema);
 
