@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
@@ -29,9 +30,13 @@ import java.util.List;
 
 public class VideoListFragment extends BaseFragment {
 
+    TextView seeMoreText;
+    ProgressBar seeMoreProgress;
     CoursService coursService;
+    List<Cours> cours;
     int page = 1;
     int nPerPage = 5;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +45,8 @@ public class VideoListFragment extends BaseFragment {
         coursService = CoursService.getInstance();
         initBase(root);
 
+        seeMoreText = root.findViewById(R.id.seeMoreBtn);
+        seeMoreProgress = root.findViewById(R.id.seeMoreProgress);
         /*MaterialCardView videoCard = root.findViewById(R.id.video_card);
         videoCard.setOnClickListener(new MaterialCardView.OnClickListener() {
             @Override
@@ -47,6 +54,13 @@ public class VideoListFragment extends BaseFragment {
                 Navigation.findNavController(root).navigate(R.id.courses_to_play);
             }
         });*/
+        seeMoreText.setOnClickListener(new TextView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                seeMore();
+            }
+        });
+
         return root;
     }
 
@@ -61,6 +75,10 @@ public class VideoListFragment extends BaseFragment {
         initData(1);
     }
 
+    public void seeMore(){
+        initData(page + 1);
+    }
+
     public void initData(int page){
         new AsyncTask<Object, Object, Object>() {
             @Override
@@ -71,14 +89,20 @@ public class VideoListFragment extends BaseFragment {
                         ex.printStackTrace();
                         Util.showErrorMessage(ex.getMessage(), getView());
                     } else {
-                        List<Cours> cours = (List<Cours>) o;
-                        setCours(cours);
+                        List<Cours> coursAppend = (List<Cours>) o;
+                        if(page == 1) cours = coursAppend;
+                        else cours.addAll(coursAppend);
+                        setCours();
                         VideoListFragment.this.page = page;
                     }
                 } catch (Exception ex){
                     ex.printStackTrace();
                 } finally {
-                    stopLoading();
+                    if(page == 1) {
+                        stopLoading();
+                    } else{
+                        seeMoreProgress.setVisibility(View.GONE);
+                    }
                 }
 
             }
@@ -93,10 +117,16 @@ public class VideoListFragment extends BaseFragment {
             }
 
         }.execute();
-        startLoading();
+
+        if(page == 1) {
+            startLoading();
+        } else{
+            seeMoreText.setVisibility(View.GONE);
+            seeMoreProgress.setVisibility(View.VISIBLE);
+        }
     }
 
-    public void setCours(List<Cours> cours) {
+    public void setCours() {
         LinearLayout videoContainer = getView().findViewById(R.id.video_list_container);
         videoContainer.removeAllViewsInLayout();
 
@@ -121,6 +151,12 @@ public class VideoListFragment extends BaseFragment {
             });
 
             videoContainer.addView(videoCardView, lp);
+        }
+
+        if(cours.size() < nPerPage){
+            seeMoreText.setVisibility(View.GONE);
+        } else {
+            seeMoreText.setVisibility(View.VISIBLE);
         }
     }
 }
