@@ -48,4 +48,24 @@ public class ThemeService {
         Theme result = Util.getGson().fromJson(myResponse.getData(), Theme.class);
         return result;
     }
+
+    public String subscribe(String id) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyMap body = new MyMap();
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/theme/" + id + "/subscribe", Util.POST, body, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        String subscriptionId = myResponse.getData().getAsString();
+        return subscriptionId;
+    }
+
+    public void unsubscribe(String id) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/theme/" + id + "/unsubscribe", Util.DELETE, null, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+    }
 }
