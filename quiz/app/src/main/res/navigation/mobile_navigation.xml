@@ -5,11 +5,19 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+
     <fragment
         android:id="@+id/logout"
         android:name="com.quiz.ui.fragments.LogoutFragment"
         tools:layout="@layout/fragment_logout"
         android:label="Déconnexion"
+        />
+
+    <fragment
+        android:id="@+id/new_pub"
+        android:name="com.quiz.ui.fragments.NewPublicatinFragment"
+        tools:layout="@layout/fragment_new_publicatin"
+        android:label="Nouvelle publication"
         />
 
     <fragment
@@ -44,6 +52,11 @@
         <action
             android:id="@+id/theme_to_pub_list"
             app:destination="@id/nav_pub_list"
+            />
+
+        <action
+            android:id="@+id/theme_to_new_pub"
+            app:destination="@id/new_pub"
             />
     </fragment>
 

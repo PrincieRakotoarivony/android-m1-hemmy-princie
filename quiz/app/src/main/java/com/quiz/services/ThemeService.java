@@ -3,6 +3,7 @@ package com.quiz.services;
 import com.google.gson.reflect.TypeToken;
 import com.quiz.KidzyApplication;
 import com.quiz.models.Categorie;
+import com.quiz.models.Publication;
 import com.quiz.models.Theme;
 import com.quiz.util.Const;
 import com.quiz.util.MyMap;
@@ -76,5 +77,15 @@ public class ThemeService {
         if(myResponse.getMeta().getStatus() != 1){
             throw myResponse.getMeta().convertToException();
         }
+    }
+
+    public String savePublication(Publication pub) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/publication/save", Util.POST, pub, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+        String id = myResponse.getData().getAsString();
+        return id;
     }
 }

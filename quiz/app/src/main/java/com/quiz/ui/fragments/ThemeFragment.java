@@ -34,7 +34,7 @@ public class ThemeFragment extends BaseFragment {
     ThemeService themeService;
     TextView themeTitle, themeDesc;
     ImageView themeImg;
-    Button btnSubscribe, btnUnsubscribe;
+    Button btnSubscribe, btnUnsubscribe, btnSeePub, btnNewPub;
     SwitchMaterial themeNotif;
     LinearLayout notifContainer;
 
@@ -58,12 +58,16 @@ public class ThemeFragment extends BaseFragment {
         themeImg = root.findViewById(R.id.theme_img);
         btnSubscribe = root.findViewById(R.id.btn_subscribe);
         btnUnsubscribe = root.findViewById(R.id.btn_unsubscribe);
+        btnSeePub = root.findViewById(R.id.btn_see_pub);
+        btnNewPub = root.findViewById(R.id.btn_new_pub);
         themeNotif = root.findViewById(R.id.theme_notif);
         notifContainer = root.findViewById(R.id.notif_container);
 
         btnSubscribe.setVisibility(View.GONE);
         btnUnsubscribe.setVisibility(View.GONE);
         notifContainer.setVisibility(View.GONE);
+        //btnSeePub.setVisibility(View.GONE);
+        btnNewPub.setVisibility(View.GONE);
 
         btnSubscribe.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -83,6 +87,15 @@ public class ThemeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 initData(null, themeNotif.isChecked());
+            }
+        });
+
+        btnNewPub.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle params = new Bundle();
+                params.putString("idTheme", id);
+                Navigation.findNavController(root).navigate(R.id.theme_to_new_pub, params);
             }
         });
 
@@ -152,10 +165,14 @@ public class ThemeFragment extends BaseFragment {
             btnSubscribe.setVisibility(View.VISIBLE);
             btnUnsubscribe.setVisibility(View.GONE);
             notifContainer.setVisibility(View.GONE);
+            //btnSeePub.setVisibility(View.GONE);
+            btnNewPub.setVisibility(View.GONE);
         } else{
             btnSubscribe.setVisibility(View.GONE);
             btnUnsubscribe.setVisibility(View.VISIBLE);
             notifContainer.setVisibility(View.VISIBLE);
+            //btnSeePub.setVisibility(View.VISIBLE);
+            btnNewPub.setVisibility(View.VISIBLE);
             themeNotif.setChecked(theme.getAbonm().isNotif());
         }
     }
