@@ -6,8 +6,13 @@ const Pays = require('./pays');
 const Partie = require('./partie');
 const Cours = require('./cours');
 const Theme = require('./theme');
-const Publication = require('./publication');
 const Abonnement = require('./abonnement');
+const Publication = require('./publication');
+<<<<<<< HEAD
+const Abonnement = require('./abonnement');
+=======
+const Comment = require('./comment');
+>>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
 
 
 module.exports = {
@@ -21,4 +26,8 @@ module.exports = {
     Theme,
     Publication,
     Abonnement,
+<<<<<<< HEAD
+=======
+    Comment
+>>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
 };

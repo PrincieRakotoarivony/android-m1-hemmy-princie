@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ThemeFragment">
 
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -31,6 +36,7 @@
                     android:gravity="center"
                     android:adjustViewBounds="true"
                     android:src="@drawable/ic_fas_book_gray"
+                    android:id="@+id/theme_img"
                     />
 
                 <TextView
@@ -41,6 +47,7 @@
                     android:gravity="center_horizontal"
                     android:fontFamily="@font/roboto_medium"
                     android:textSize="16sp"
+                    android:id="@+id/theme_title"
                     />
             </LinearLayout>
 
@@ -55,10 +62,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/lorem"
+                    android:id="@+id/theme_desc"
                     android:textSize="12sp"
                     />
 
                 <LinearLayout
+                    android:id="@+id/notif_container"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,8 +87,51 @@
                         android:theme="@style/AppTheme.Material"
                         android:checked="true"
                         android:textSize="14sp"
-                        android:text="Notification"/>
+                        android:text="Notification"
+                        android:id="@+id/theme_notif"/>
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingHorizontal="20dp"
+                android:orientation="horizontal"
+                android:gravity="end"
+                >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/btn_radient"
+                    android:fontFamily="@font/righteous"
+                    android:text="S'abonner"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/btn_subscribe"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/btn_radient"
+                    android:fontFamily="@font/righteous"
+                    android:text="Se désabonner"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/btn_unsubscribe"
+                    />
+
 
             </LinearLayout>
 
@@ -92,23 +144,25 @@
                 android:gravity="end"
                 >
 
+
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="10dp"
                     android:background="@drawable/btn_radient"
                     android:fontFamily="@font/righteous"
-                    android:text="S'abonner"
+                    android:text="Nouvelle publication"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:gravity="center"
                     android:layout_marginRight="10dp"
+                    android:id="@+id/btn_new_pub"
                     />
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="10dp"
                     android:background="@drawable/btn_radient"
@@ -117,9 +171,27 @@
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:gravity="center"
+                    android:id="@+id/btn_see_pub"
                     />
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/common_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loading_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        >
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:theme="@style/AppTheme.SplashLoadingTheme"
+            />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ const CoursSchema = new mongoose.Schema({
 CoursSchema.statics.findAll = async function (params) {
     return await Cours.find({
         ...params.crt,
-        description: { $regex: new RegExp(`.*${params.search == null ? '' : params.search.trim()}.*`), $options: "i" },
+        description: { $regex: new RegExp(`.*${params.search? params.search.trim() : ''}.*`), $options: "i" },
     })
     .skip((params.pageNumber - 1) * params.nPerPage)
     .limit(params.nPerPage);

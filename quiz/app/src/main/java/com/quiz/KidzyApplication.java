@@ -10,6 +10,7 @@ public class KidzyApplication extends Application{
     static Context context;
     static DbHelper dbHelper;
 
+
     public static final String SHARED_PREFS = "kidzy";
 
     public static Context getContext() {
