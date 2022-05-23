@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.quiz.KidzyApplication;
 import com.quiz.R;
 import com.quiz.models.Categorie;
@@ -33,6 +34,8 @@ public class VideoListFragment extends BaseFragment {
     TextView seeMoreText;
     ProgressBar seeMoreProgress;
     CoursService coursService;
+    LinearLayout btnSearch;
+    TextInputLayout searchTextLayout;
     int page = 1;
     int nPerPage = 5;
 
@@ -46,6 +49,9 @@ public class VideoListFragment extends BaseFragment {
 
         seeMoreText = root.findViewById(R.id.seeMoreBtn);
         seeMoreProgress = root.findViewById(R.id.seeMoreProgress);
+        btnSearch = root.findViewById(R.id.search_btn);
+        searchTextLayout = root.findViewById(R.id.search_input);
+
         /*MaterialCardView videoCard = root.findViewById(R.id.video_card);
         videoCard.setOnClickListener(new MaterialCardView.OnClickListener() {
             @Override
@@ -57,6 +63,12 @@ public class VideoListFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 seeMore();
+            }
+        });
+        btnSearch.setOnClickListener(new LinearLayout.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initData();
             }
         });
 
@@ -79,7 +91,8 @@ public class VideoListFragment extends BaseFragment {
     }
 
     public void initData(int page){
-        new AsyncTask<Object, Object, Object>() {
+        String search = searchTextLayout.getEditText().getText().toString();
+        new AsyncTask<String, Object, Object>() {
             @Override
             protected void onPostExecute(Object o) {
                 try {
@@ -106,15 +119,15 @@ public class VideoListFragment extends BaseFragment {
             }
 
             @Override
-            protected Object doInBackground(Object... objects) {
+            protected Object doInBackground(String... objects) {
                 try{
-                    return coursService.findCours("", page, nPerPage);
+                    return coursService.findCours(objects[0], page, nPerPage);
                 } catch (Exception ex){
                     return ex;
                 }
             }
 
-        }.execute();
+        }.execute(search);
 
         if(page == 1) {
             startLoading();
