@@ -7,7 +7,12 @@
     tools:context=".ui.fragments.PublicationFragment"
     >
 
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fadeScrollbars="true"
@@ -43,6 +48,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/pub_img"
                         android:adjustViewBounds="true"
+                        android:id="@+id/pub_img"
                         />
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -55,6 +61,7 @@
                             android:text="This is the title"
                             android:fontFamily="@font/roboto_medium"
                             android:textSize="16sp"
+                            android:id="@+id/pub_title"
                             />
 
                         <LinearLayout
@@ -78,6 +85,7 @@
                                 android:text="natalie1"
                                 android:fontFamily="@font/roboto"
                                 android:textSize="14sp"
+                                android:id="@+id/pub_user"
                                 />
                         </LinearLayout>
 
@@ -101,6 +109,7 @@
                                 android:text="21/05/2022 10:30"
                                 android:fontFamily="@font/roboto"
                                 android:textSize="14sp"
+                                android:id="@+id/pub_date"
                                 />
 
                         </LinearLayout>
@@ -111,6 +120,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/lorem"
                             android:textSize="13sp"
+                            android:id="@+id/pub_desc"
                             />
                     </LinearLayout>
 
@@ -351,7 +361,24 @@
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/common_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loading_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        >
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:theme="@style/AppTheme.SplashLoadingTheme"
+            />
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_comment"

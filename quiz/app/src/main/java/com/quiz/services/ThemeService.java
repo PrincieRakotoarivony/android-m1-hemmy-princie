@@ -106,4 +106,16 @@ public class ThemeService {
         return result;
     }
 
+    public Publication findPubById(String id) throws Exception {
+        String token = KidzyApplication.get("token");
+
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/publication/"+id, Util.GET, null, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        Publication result = Util.getGson().fromJson(myResponse.getData(), Publication.class);
+        return result;
+    }
+
 }

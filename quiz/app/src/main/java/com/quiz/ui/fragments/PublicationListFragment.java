@@ -155,7 +155,7 @@ public class PublicationListFragment extends BaseFragment {
             pubTitle.setText(pub.getTitre());
 
             TextView pubUser = pubCardView.findViewById(R.id.pub_user);
-            pubUser.setText(Util.coalesce(pub.getUser().getPrenom()) + pub.getUser().getNom());
+            pubUser.setText(Util.coalesce(pub.getUser().getPrenom()) + " " + pub.getUser().getNom());
 
             TextView pubDate = pubCardView.findViewById(R.id.pub_date);
             pubDate.setText(Util.formatDate(pub.getDatePub()));
@@ -171,6 +171,7 @@ public class PublicationListFragment extends BaseFragment {
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
                     bundle.putString("id", pub.get_id());
+                    System.out.println("id = "+pub.get_id());
                     Navigation.findNavController(getView()).navigate(R.id.pub_list_to_details, bundle);
                 }
             });

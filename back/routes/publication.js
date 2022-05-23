@@ -36,9 +36,11 @@ router.get('/:id', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        const result = await Publication.findDetailsById(new mongoose.Types.ObjectId(req.params.id));
+        console.log(req.params.id);
+        const result = await Publication.findDetailsById(u._id, new mongoose.Types.ObjectId(req.params.id));
         res.json(responseBuilder.success(result));
     } catch(error){
+        console.error(error);
         res.json(responseBuilder.error(error));
     }
 });

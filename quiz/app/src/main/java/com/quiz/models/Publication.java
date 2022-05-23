@@ -1,6 +1,7 @@
 package com.quiz.models;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Publication {
     String _id;
@@ -14,6 +15,16 @@ public class Publication {
     Abonnement abonm;
     Utilisateur user;
     Theme theme;
+
+    List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public Abonnement getAbonm() {
         return abonm;

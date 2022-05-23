@@ -63,7 +63,7 @@ PublicationSchema.statics.findAll = async function (id_user, params) {
     .limit(params.nPerPage);
 }
 
-PublicationSchema.statics.findDetailsById = async function(id){
+PublicationSchema.statics.findDetailsById = async function(id_user, id){
     let aggregateParams = [
         {$match: {_id: id}},
         {

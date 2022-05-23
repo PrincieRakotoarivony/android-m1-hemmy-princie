@@ -87,7 +87,7 @@ public class Util {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).setBackgroundTint(Color.RED).show();
     }
 
-    public static String formatDate(Timestamp date) throws Exception {
+    public static String formatDate(Timestamp date) {
        return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date);
     }
 
