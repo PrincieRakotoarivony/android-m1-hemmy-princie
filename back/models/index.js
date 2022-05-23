@@ -8,12 +8,8 @@ const Cours = require('./cours');
 const Theme = require('./theme');
 const Abonnement = require('./abonnement');
 const Publication = require('./publication');
-<<<<<<< HEAD
 const Abonnement = require('./abonnement');
-=======
 const Comment = require('./comment');
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
-
 
 module.exports = {
     Token, 
@@ -26,8 +22,5 @@ module.exports = {
     Theme,
     Publication,
     Abonnement,
-<<<<<<< HEAD
-=======
-    Comment
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
+    Comment,
 };

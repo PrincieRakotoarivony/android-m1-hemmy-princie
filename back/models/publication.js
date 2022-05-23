@@ -1,25 +1,15 @@
 const moment = require('moment');
 const sha1 = require('sha1');
 const { default: mongoose } = require("mongoose");
-<<<<<<< HEAD
 const Abonnement = require('./abonnement');
-=======
-const Comment = require('./comment');
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
-
 const PublicationSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     titre: {type: String, trim: true, required: [true, "Titre obligatoire"]},
     description: {type: String, trim: true, required: [true, "Description obligatoire"]},
     img: String,
-<<<<<<< HEAD
-    id_theme: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Theme' },
-    id_user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Utilisateur' },
-=======
     datePub: {type: Date, default: Date.now()},
     id_theme: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Theme'},
     id_user: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Utilisateur'},
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
 });
 
 PublicationSchema.statics.findAll = async function (id_user, params) {
@@ -72,7 +62,6 @@ PublicationSchema.statics.findAll = async function (id_user, params) {
     .limit(params.nPerPage);
 }
 
-<<<<<<< HEAD
 PublicationSchema.statics.createPublication = async function (params, user) {
     // save publication
     params.img = 'imgs/publication/' + params.img;
@@ -89,7 +78,6 @@ PublicationSchema.statics.createPublication = async function (params, user) {
     return publication._id;
 }
 
-=======
 PublicationSchema.statics.findDetailsById = async function(id_user, id){
     let aggregateParams = [
         {$match: {_id: id}},
@@ -154,7 +142,6 @@ PublicationSchema.methods.comment = async function (id_user, comment){
     await comment.save();
     return comment;
 }
->>>>>>> e208df3a7efbbdc046086501cc0c2006bf70febe
 
 const Publication = mongoose.model('Publication', PublicationSchema);
 
