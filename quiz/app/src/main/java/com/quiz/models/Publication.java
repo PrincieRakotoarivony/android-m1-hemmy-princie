@@ -11,6 +11,34 @@ public class Publication {
     String id_theme;
     String id_user;
 
+    Abonnement abonm;
+    Utilisateur user;
+    Theme theme;
+
+    public Abonnement getAbonm() {
+        return abonm;
+    }
+
+    public void setAbonm(Abonnement abonm) {
+        this.abonm = abonm;
+    }
+
+    public Utilisateur getUser() {
+        return user;
+    }
+
+    public void setUser(Utilisateur user) {
+        this.user = user;
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
+
     public String get_id() {
         return _id;
     }

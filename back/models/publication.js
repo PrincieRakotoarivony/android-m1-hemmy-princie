@@ -19,13 +19,44 @@ PublicationSchema.statics.findAll = async function (id_user, params) {
     if(params.search){
         const search = params.search.trim();
         const regex = { $regex: new RegExp(`.*${search}.*`), $options: "i" };
-        crt.titre = regex;
-        crt.description = regex;
+        crt["$or"] = [{titre: regex}, {description: regex}];
     }    
 
-    return await Publication.find(...crt)
-    .populate('id_theme')
-    .populate('id_user')
+    const aggregateParams = [
+        {$match: crt},
+        {
+            $lookup: {
+                from: "themes",
+                localField: "id_theme",
+                foreignField: "_id",
+                as: "theme"
+            }
+        },
+        {$unwind: {path: "$theme"}},
+        {
+            $lookup: {
+                from: "utilisateurs",
+                localField: "id_user",
+                foreignField: "_id",
+                as: "user"
+            }
+        },
+        {$unwind: {path: "$user"}},
+        {
+            $lookup: {
+                from: "abonnements",
+                localField: "id_theme",
+                foreignField: "id_theme",
+                pipeline: [
+                    {$match: {id_user}}
+                ],
+                as: "abonm"
+            }
+        },
+        {$unwind: {path: "$abonm", preserveNullAndEmptyArrays: crt.id_theme ? true : false}}
+    ];
+
+    return await Publication.aggregate(aggregateParams)
     .sort({datePub: -1})
     .skip((params.pageNumber - 1) * params.nPerPage)
     .limit(params.nPerPage);

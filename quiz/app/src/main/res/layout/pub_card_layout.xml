@@ -1,0 +1,91 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="10dp"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="12dp"
+    android:theme="@style/AppTheme.Material"
+    android:clickable="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pub_img"
+            android:adjustViewBounds="true"
+            android:id="@+id/pub_img"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is the title"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:id="@+id/pub_title"
+                />
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_fas_user"
+                    android:tint="@color/my_gray"
+                    android:adjustViewBounds="true"/>
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="natalie1"
+                    android:id="@+id/pub_user"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_fas_calendar"
+                    android:tint="@color/my_gray"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21/05/2022 10:30"
+                    android:id="@+id/pub_date"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

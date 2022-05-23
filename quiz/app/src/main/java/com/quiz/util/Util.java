@@ -15,6 +15,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -81,5 +85,13 @@ public class Util {
 
     public static void showErrorMessage(String message, View view){
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).setBackgroundTint(Color.RED).show();
+    }
+
+    public static String formatDate(Timestamp date) throws Exception {
+       return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date);
+    }
+
+    public static String coalesce(String str){
+        return (str == null) ? "" : str;
     }
 }

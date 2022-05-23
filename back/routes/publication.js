@@ -9,7 +9,7 @@ router.post('/', async function(req, res){
     try{
         const token = tools.extractToken(req.headers.authorization);
         const u = await Utilisateur.findUser(token);
-        const result = await Publication.findAll(req.body);
+        const result = await Publication.findAll(u._id, req.body);
         res.json(responseBuilder.success(result));
     } catch(error){
         res.json(responseBuilder.error(error));

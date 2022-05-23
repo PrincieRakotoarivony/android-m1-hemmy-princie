@@ -88,4 +88,22 @@ public class ThemeService {
         String id = myResponse.getData().getAsString();
         return id;
     }
+
+    public List<Publication> findPublications(String search, String id_theme, int pageNumber, int nPerPage) throws Exception {
+        String token = KidzyApplication.get("token");
+        MyMap body = new MyMap()
+                .putData("search", search)
+                .putData("id_theme", id_theme)
+                .putData("pageNumber", pageNumber)
+                .putData("nPerPage", nPerPage);
+
+        MyResponse myResponse = Util.executeRequest(Const.BASE_URL + "/publication/", Util.POST, body, token);
+        if(myResponse.getMeta().getStatus() != 1){
+            throw myResponse.getMeta().convertToException();
+        }
+
+        List<Publication> result = Util.getGson().fromJson(myResponse.getData(), new TypeToken<List<Publication>>(){}.getType());
+        return result;
+    }
+
 }
